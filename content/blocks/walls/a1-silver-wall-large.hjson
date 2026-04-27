@@ -1,0 +1,24 @@
+type: Wall
+name: Muro grande de plata
+description: Versión reforzada que mejora la probabilidad de desviar proyectiles.
+
+size: 2
+health: 1900
+envEnabled: [any]
+
+chanceDeflect: 0.14
+
+requirements: [
+  silver/24
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: a0-silver-wall
+  objectives: [silver]
+  requirements: [
+    silver/700
+  ]
+}
+
+category: defense

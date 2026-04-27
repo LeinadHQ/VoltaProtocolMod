@@ -1,0 +1,44 @@
+type: Reconstructor
+name: Plataforma de Reconfiguración Syrinx
+description: Mejora unidades Syrinx a su forma avanzada mediante integración de bio-plasma y metales nobles.
+
+size: 5
+health: 1200
+category: units
+
+constructTime: 3600
+
+requirements: [
+  silicon/250
+  palladium/180
+  titanium/220
+  metaglass/150
+]
+
+consumes: {
+  power: 6
+  items: {
+    items: [
+      silicon/80
+      palladium/60
+      titanium/70
+    ]
+  }
+  liquid: {
+    liquid: bio-plasma
+    amount: 0.2
+  }
+}
+
+upgrades: [
+  [w2-b-syrinx-ii, w2-c-syrinx-iii]
+]
+
+research: {
+  parent: u2-syrinx-reconstructor
+  requirements: [
+    silicon/4000
+    palladium/2500
+    titanium/3000
+  ]
+}

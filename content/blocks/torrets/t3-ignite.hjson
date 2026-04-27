@@ -1,0 +1,119 @@
+type: ContinuousLiquidTurret
+name: Igniter
+description: Lanza un chorro continuo de oxicloruro altamente oxidante. Prototipo del cauterier que no posee los estabilizadores necesarios para procesar bio-plasma. Ideal para defensas tempranas contra blindaje ligero.
+size: 2
+health: 850
+range: 140
+liquidCapacity: 40
+liquidConsumed: 0.15
+
+category: turret
+loopSound: shootSublimate
+
+
+ammoTypes: {
+  oxychloride: {
+    type: ContinuousFlameBulletType
+    damage: 35
+    length: 145
+    width: 5
+    pierceCap: 2
+    rangeChange: +30
+
+    colors: [4a8e8e, 5eb1b1, 84f5f5, b3ffff]
+    lightColor: 84f5f5
+    flareColor: 84f5f5
+
+    hitEffect: {
+      type: ParticleEffect
+      line: true
+      particles: 4
+      lifetime: 15
+      length: 15
+      interp: exp5Out
+      
+      colorFrom: b3ffff
+      colorTo: 5eb1b1
+      sizeFrom: 3
+      sizeTo: 0
+    }
+    despawnEffect: none
+
+    status: melting
+    statusDuration: 120
+  }
+
+  slag: {
+    type: ContinuousFlameBulletType 
+    damage: 23
+    length: 130
+    width: 4
+    pierceCap: 2
+
+    colors: [451a00, 8c3000, d96c00, ffa64d, fff6e0]
+    lightColor: ffa64d
+    flareColor: fff6e0
+    shootEffect: shootSmall
+    smokeEffect: shootBigSmoke
+
+    hitEffect: {
+      type: ParticleEffect
+      line: false
+      particles: 7
+      lifetime: 23
+      length: 23
+      interp: pow3Out
+      
+      colorFrom: fff6e0
+      colorTo: d96c00
+      sizeFrom: 2
+      sizeTo: 0.5
+    }
+    despawnEffect: none
+
+    status: melting
+    statusDuration: 60
+  }
+
+  water: {
+    type: ContinuousFlameBulletType
+    damage: 4
+    length: 125
+    width: 4
+    knockback: 1.8
+    collidesTeam: true
+
+    colors: [2a4494, 4869d6, a9d0ff]
+    lightColor: a9d0ff
+    flareColor: 4869d6
+
+    hitEffect: {
+      type: ParticleEffect
+      line: true
+      particles: 4
+      lifetime: 15
+      length: 15
+      interp: circleOut
+      
+      colorFrom: a9d0ff
+      colorTo: 4869d6
+      sizeFrom: 3
+      sizeTo: 0
+    }
+    despawnEffect: none
+
+    status: wet
+    statusDuration: 120
+  }
+}
+
+requirements: [
+  silver/80
+  lead/100
+  metaglass/50
+]
+
+research: {
+  parent: t1-tipe-1
+  objectives: [oxychloride]
+}

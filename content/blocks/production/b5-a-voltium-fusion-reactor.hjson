@@ -1,0 +1,65 @@
+type: GenericCrafter
+name: Reactor de Fusión Voltium
+description: Fusiona torio y paladio en un estado energético inestable.
+
+size: 3
+health: 500
+hasPower: true
+hasItems: true
+
+craftTime: 80
+
+requirements: [
+  silicon/300
+  thorium/250
+  plastanium/200
+  metaglass/150
+  silver/100
+  palladium/125
+]
+
+research: {
+  parent: b1-b-cupellation-furnace
+  objectives: [ thorium, plastanium ]
+  requirements: [
+    thorium/2000
+    silicon/2500
+    metaglass/6100
+    plastanium/2500
+    silver/2200
+    palladium/3000
+  ]
+}
+
+consumes: {
+  power: 7
+  items: [
+    thorium/2
+    palladium/1
+    silver/1
+  ]
+}
+
+outputItem: voltium/1
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    { 
+    type: DrawDefault 
+    }
+    { 
+    type: DrawFlame 
+    }
+    { 
+    type: DrawGlowRegion 
+    suffix: -heat 
+    color: ffa64d 
+    }
+  ]
+}
+
+ambientSound: loopCombustion
+ambientSoundVolume: 0.06
+
+category: crafting

@@ -1,0 +1,44 @@
+type: GenericCrafter
+name: Centrífuga de Bio-Plasma
+description: Procesa metales nobles y silicio dentro de una base de oxicloruro para crear Bio-Plasma Argentado, un fluido con propiedades de reparación molecular.
+size: 3
+hasLiquids: true
+hasItems: true
+craftTime: 90
+envEnabled: [any]
+
+ambientSound: loopPulse
+ambientSoundVolume: 0.05
+
+consumes: {
+  power: 4.5
+  items: [
+    silver/2
+    palladium/1
+    silicon/2
+  ]
+  liquid: oxychloride/0.1
+}
+
+outputLiquid: bio-plasma/0.1
+
+requirements: [
+  silver/150
+  palladium/120
+  silicon/100
+  metaglass/80
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: b3-a-oxychloride-chamber
+  objectives: [palladium, oxychloride]
+  requirements: [
+    silver/3500
+    palladium/2000
+    metaglass/4000
+    silicon/4150
+  ]
+}
+
+category: crafting

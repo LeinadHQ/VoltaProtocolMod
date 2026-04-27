@@ -1,0 +1,37 @@
+type: UnitFactory
+name: Hangar de Syrinx
+description: Instalación especializada en el ensamblaje de unidades médicas y químicas. Utiliza biomateriales y metales nobles para crear chasis resistentes a la corrosión.
+size: 3
+envEnabled: [any]
+consumes: {
+  power: 2.5
+}
+plans: [
+  {
+    unit: w2-a-syrinx-i
+    time: 1500
+    requirements: [
+      silver/45
+      silicon/60
+      lead/50
+    ]
+  }
+]
+requirements: [
+  silver/120
+  metaglass/80
+  silicon/100
+]
+category: units
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: vp1-argent-assembler
+  objectives: [silver]
+  requirements: [
+    silver/1500
+    metaglass/1500
+    silicon/1650
+  ]
+}
+category: units

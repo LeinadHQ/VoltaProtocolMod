@@ -1,0 +1,8 @@
+{
+  "name": "volta-protocol",
+  "displayName": "Volta Protocol",
+  "author": "Leinad (discord: danizzq)",
+  "description": "\n[white[]]Un mod creado por mí con el propósito de lograr agregar contenido que podrian ser útil en el modo vanilla. \n\n[white[]]Este  mod se centra principalmente en la creacion de tecnología en base a la energía y materiales conductores, y la utilizacion de estos recursos para la creacion de unidades, torretas y sus municiones. \n\n[accent[]]Contenido: \n[white[]]·5 materiales \n[white[]]·3 liquidos[white[]] \n[white[]]·4 muros \n[white[]]·11 fabricas[white[]] \n[white[]]·1 generador \n[white[]]·1 cinta de transporte \n[white[]]·5 torretas[white[]] \n[white[]]·6 fabricas de unidades \n[white[]]·6 unidades. \n\n[accent[]]todo lo anterior en algun futuro sera movido a un nuevo arbol tecnologico o seccion separada[white[]] \n\n[grey[]]PD: Aun faltan varios sprites, por que aun estan en desarrollo y se deben arreglar algunos errores.[grey[]] \n\n[grey[]]Por ahora el mod fue probado mientras se utilizaban mods como New Horizon, Vanilla Expansion, Warbound industries, [Better Vanilla] y Mindustry Tool",
+  "version": "1.0 beta",
+  "minGameVersion": "154"
+}

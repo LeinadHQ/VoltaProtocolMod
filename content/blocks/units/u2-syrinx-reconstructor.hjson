@@ -1,0 +1,45 @@
+type: Reconstructor
+name: Reconstructor Syrinx
+description: Mejora aerodeslizadores Syrinx a versiones más avanzadas mediante utilizacion de oxicloruro y otros materiales.
+
+size: 3
+health: 750
+category: units
+envEnabled: [any]
+
+requirements: [
+  silver/180
+  silicon/140
+  titanium/120
+  metaglass/100
+]
+
+research: {
+  parent: u1-syrinx-hangar
+  objectives: [u1-syrinx-hangar, oxychloride]
+  requirements: [
+    silver/1200
+    silicon/900
+    titanium/800
+    metaglass/700
+  ]
+}
+
+constructTime: 1800
+
+upgrades: [
+  [w2-a-syrinx-i, w2-b-syrinx-ii]
+]
+
+consumes: {
+  power: 3.5
+  items: [
+    silicon/35
+    silver/30
+    titanium/25
+  ]
+  liquid: {
+    liquid: oxychloride
+    amount: 0.15
+  }
+}

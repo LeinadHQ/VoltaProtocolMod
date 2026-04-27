@@ -1,0 +1,13 @@
+type: liquid
+name: Oxicloruro
+description: Un agente oxidante altamente corrosivo obtenido mediante la cloración de óxidos metálicos. Al ser proyectado, desintegra las capas moleculares del blindaje enemigo.
+color: 84f5f5
+gas: true
+flammability: 0.1
+explosiveness: 0.4
+viscosity: 0.3
+coolant: false
+
+research: {
+  parent: water
+}

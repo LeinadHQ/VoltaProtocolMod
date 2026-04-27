@@ -1,0 +1,108 @@
+type: GenericCrafter
+name: Refinería Cuántica de Paladio
+description: Utiliza flux-phase para separar y sintetizar paladio a nivel molecular, logrando una producción masiva altamente eficiente.
+
+size: 5
+health: 900
+
+hasPower: true
+hasItems: true
+hasLiquids: true
+liquidCapacity: 100
+
+craftTime: 60
+envEnabled: [any]
+category: crafting
+
+ambientSound: loopReactor
+ambientSoundVolume: 0.08
+
+requirements: [
+  silicon/500
+  phase-fabric/200
+  plastanium/250
+  thorium/300
+  palladium/150
+]
+
+research: {
+  parent: b2-b-palladium-catalytic-separator
+  objectives: [ flux-phase ]
+  requirements: [
+    palladium/2500
+    phase-fabric/1200
+    thorium/2000
+    silicon/5000
+    plastanium/3000
+  ]
+}
+
+consumes: {
+  power: 18
+
+  items: [
+    scrap/6
+    thorium/2
+  ]
+
+  liquid: {
+    liquid: flux-phase
+    amount: 0.3
+  }
+}
+
+outputItems: [
+  {
+    item: palladium
+    amount: 4
+  }
+]
+
+outputLiquid: slag/0.2
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: flux-phase
+      padding: 5
+    },
+    {
+      type: DrawGlowRegion
+      suffix: -core
+      color: e1897a
+    },
+    {
+      type: DrawParticles
+      color: f5b0a5
+      particles: 15
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+
+craftEffect: {
+  type: MultiEffect
+  effects: [
+    {
+      type: ParticleEffect
+      particles: 18
+      lifetime: 60
+      length: 35
+      colorFrom: e1897a
+      colorTo: ffffff
+    },
+    {
+      type: RadialEffect
+      amount: 4
+      effect: shockwave
+    }
+  ]
+}

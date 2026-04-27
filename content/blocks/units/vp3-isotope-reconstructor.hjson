@@ -1,0 +1,46 @@
+type: Reconstructor
+name: isotope reconstructor
+description: Reconstruye unidades de combate avanzadas utilizando conducción energética y fluidos reactivos.
+
+size: 5
+health: 1400
+category: units
+
+constructTime: 3000
+
+requirements: [
+  silicon/300
+  palladium/200
+  titanium/250
+  metaglass/180
+]
+
+consumes: {
+  power: 7
+
+  items: {
+    items: [
+      silicon/100
+      palladium/80
+      titanium/90
+    ]
+  }
+
+  liquid: {
+    liquid: oxychloride
+    amount: 0.25
+  }
+}
+
+upgrades: [
+  [w1-b-valance, w1-c-isotope]
+]
+
+research: {
+  parent: vp2-silver-reconstructor
+  requirements: [
+    silicon/5000
+    palladium/3000
+    titanium/4000
+  ]
+}

@@ -1,0 +1,147 @@
+type: hover
+name: Syrinx-II "Catalyst"
+description: Segunda unidad de la clase Syrinx. Este aerodeslizador medio utiliza concentrados de oxicloruro para mejorar su campo de reparación. Está equipado con emisores de plasma corrosivos.
+speed: 1
+health: 650
+armor: 5
+hitSize: 15
+outlineRadius: 2
+
+hovering: true
+canDrown: false
+
+useEngineElevation: false
+shadowElevation: 0.3
+drag: 0.07
+rippleScale: 3.5
+
+trailLength: 30
+trailColor: 84f5f5
+engineOffset: 8
+engineSize: 3.5
+engineColor: 5eb1b1
+
+abilities: [
+  {
+    type: RepairFieldAbility
+    amount: 25
+    reload: 100
+    range: 0
+  }
+  {
+    type: RepairFieldAbility
+    amount: 10
+    reload: 90
+    range: 60
+  }
+]
+
+immunities: [
+  melting,
+  burning,
+  corroded
+]
+
+parts: [
+    {
+      type: HoverPart
+      x: 5
+      y: -5
+      mirror: true
+      radius: 6
+      phase: 120
+      stroke: 3
+      layerOffset: -0.001
+      color: 5eb1b1
+    },
+    {
+      type: HoverPart
+      x: 5
+      y: 5
+      mirror: true
+      radius: 6
+      phase: 120
+      stroke: 3
+      layerOffset: -0.001
+      color: 5eb1b1
+    }
+]
+
+weapons: [
+  {
+    name: syrinx-ii-weapon
+    x: 7
+    y: 0
+    reload: 45
+    mirror: true
+    alternate: false
+    recoil: 2
+    shootSound: shootBeam
+
+bullet: {
+  type: BasicBulletType
+  speed: 5
+  lifetime: 34.8
+  damage: 14
+  width: 5
+  height: 8
+
+  homingPower: 0.08
+  homingRange: 60
+
+  status: sapped
+  statusDuration: 90
+
+  frontColor: e2f2ff
+  backColor: 84f5f5
+
+  trailEffect: {
+    type: ParticleEffect
+    particles: 2
+    lifetime: 16
+    length: 6
+    cone: 10
+    sizeFrom: 2
+    sizeTo: 0
+    colorFrom: 84f5f5
+    colorTo: ffffff
+   }
+   trailChance: 1
+
+   fragBullets: 2
+   fragSpread: 15
+   fragRandomSpread: 10
+
+   fragVelocityMin: 0.7
+   fragVelocityMax: 1.2
+
+   fragLifeMin: 0.6
+   fragLifeMax: 0.9
+
+   fragBullet: {
+     type: BasicBulletType
+     damage: 5
+     speed: 3.5
+     width: 3
+     height: 4
+     lifetime: 25
+
+     frontColor: b3ffff
+     backColor: 5eb1b1
+
+     status: sapped
+     statusDuration: 40
+   }
+
+   shootEffect: shootSmall
+  }
+ }
+]
+research: {
+  parent: w2-a-syrinx-i
+  requirements: [
+    { item: silver, amount: 800 },
+    { item: titanium, amount: 400 },
+    { item: silicon, amount: 600 }
+  ]
+}

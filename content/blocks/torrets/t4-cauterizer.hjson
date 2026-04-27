@@ -1,0 +1,157 @@
+type: ContinuousLiquidTurret
+name: Cauterizador
+description: Proyecta un rayo de bio-plasma de alta temperatura. Capaz de derretir blindaje pesado y, con la munición adecuada, reparar estructuras aliadas. Incluye sistemas de refrigeración avanzada.
+size: 3
+health: 1950
+range: 160
+recoil: 0
+loopSound: shootSublimate
+
+liquidCapacity: 50
+liquidConsumed: 0.30
+
+
+ammoTypes: {
+oxychloride: {
+    type: ContinuousFlameBulletType
+    damage: 62
+    length: 165
+    width: 5
+    pierceCap: 3
+    rangeChange: +30
+
+    colors: [4a8e8e, 5eb1b1, 84f5f5, b3ffff]
+    lightColor: 84f5f5
+    flareColor: 84f5f5 
+
+    hitEffect: {
+      type: ParticleEffect
+      line: true
+      particles: 6
+      lifetime: 25
+      length: 25
+      interp: exp5Out
+      
+      colorFrom: b3ffff
+      colorTo: 5eb1b1
+      sizeFrom: 3
+      sizeTo: 0
+    }
+    despawnEffect: none
+
+    status: melting
+    statusDuration: 180
+  }
+  bio-plasma: {
+    type: ContinuousFlameBulletType
+    damage: 25
+    healPercent: 1.0
+    collidesTeam: true
+    length: 200
+    rangeChange: +45
+    width: 6
+    pierceCap: 3
+
+    colors: [e2f2ff, 84f5f5, 72d2d2, 5eb1b1]
+    lightColor: 84f5f5
+    flareColor: 84f5f5
+
+    hitEffect: {
+      type: ParticleEffect
+      line: true
+      particles: 8
+      lifetime: 25
+      length: 25
+      interp: exp5Out
+      
+      colorFrom: ffffff
+      colorTo: 84f5f5
+      sizeFrom: 4
+      sizeTo: 0
+    }
+    despawnEffect: none
+
+    status: electrified
+    statusDuration: 120
+  }
+  slag: {
+    type: ContinuousFlameBulletType
+    damage: 32
+    length: 150
+    width: 4
+    pierceCap: 2
+
+    colors: [451a00, 8c3000, d96c00, ffa64d, fff6e0]
+    lightColor: ffa64d
+    flareColor: fff6e0
+    shootEffect: shootSmall
+    smokeEffect: shootBigSmoke
+
+    hitEffect: {
+      type: ParticleEffect
+      line: false
+      particles: 10
+      lifetime: 30
+      length: 30
+      interp: pow3Out
+      
+      colorFrom: fff6e0
+      colorTo: d96c00
+      sizeFrom: 3
+      sizeTo: 0.5
+    }
+    despawnEffect: none
+
+    status: melting
+    statusDuration: 200
+  }
+  water: {
+    type: ContinuousFlameBulletType
+    damage: 8
+    length: 140
+    width: 4
+    knockback: 2.6
+    collidesTeam: true
+    collidesTiles: true
+
+    colors: [2a4494, 4869d6, a9d0ff]
+    lightColor: a9d0ff
+    flareColor: 4869d6
+
+    hitEffect: {
+      type: ParticleEffect
+      line: true
+      particles: 6
+      lifetime: 20
+      length: 20
+      interp: circleOut
+      
+      colorFrom: a9d0ff
+      colorTo: 4869d6
+      sizeFrom: 3
+      sizeTo: 0
+    }
+    despawnEffect: none
+
+    status: wet
+    statusDuration: 120
+  }
+}
+
+requirements: [
+  silver/120
+  palladium/60
+  metaglass/80
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: t3-ignite
+  objectives: [palladium]
+  requirements: [
+    silver/4000
+    palladium/2500
+    metaglass/4000
+  ]
+}
+category: turret

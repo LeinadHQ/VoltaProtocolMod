@@ -1,0 +1,28 @@
+type: Wall
+name: Muro grande de paladio
+description: Versión reforzada del muro de palladio.
+
+size: 2
+health: 2400
+envEnabled: [any]
+
+insulated: true
+
+lightningChance: 0.18
+lightningLength: 8
+lightningDamage: 18
+
+requirements: [
+  palladium/24
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: a2-palladium-wall
+  objectives: [palladium]
+  requirements: [
+    palladium/800
+  ]
+}
+
+category: defense

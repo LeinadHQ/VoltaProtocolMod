@@ -1,0 +1,127 @@
+type: tank
+name: valance
+
+description: prototipo de tanquee de plata
+
+health: 790
+armor: 6
+speed: 0.75
+hitSize: 15
+range: 110
+outlineRadius: 2
+drag: 0.05
+accel: 0.08
+
+omniMovement: false
+rotateSpeed: 1.8
+faceTarget: false
+
+treadFrames: 8
+treadPullOffset: 1
+treadRects: [
+	{
+		type: rect
+		x: -24
+		y: -31
+		width: 9
+		height: 61
+	},
+	{
+		type: rect
+		x: 14
+		y: -31
+		width: 9
+		height: 61
+	}
+]
+
+weapons: 
+[
+  {
+    name: w1-b-valance-cover
+    x: 0
+    y: -2
+    mirror: false
+    rotate: true
+    rotateSpeed: 4
+    top: true
+    reload: 75
+    shootSound: shootLocus
+    shootSoundVolume: 0.6
+    recoil: 0    
+    shootY: 10
+    
+        parts: [  
+      {
+        type: RegionPart
+        suffix: ""
+      },
+      {
+        type: RegionPart
+        suffix: -barrel
+        progress: recoil
+        x: 0
+        y: 3
+        moveY: -1.5
+        under: true
+        heatProgress: recoil 
+        heatColor: 70809088
+      }
+    ]
+
+    bullet: {
+      type: Laser
+      damage: 65
+      length: 170
+      width: 12
+
+      hitEffect: lightningShoot
+      shootEffect: shootBig
+      smokeEffect: shootBigSmoke
+
+      lightningColor: 84f5f5
+    }
+  },
+
+  {
+    name: w1-b-valance-secundary-gun
+
+    shootX: 0
+    shootY: 3
+    x: 6
+    y: 3.5
+
+    mirror: false
+    top: false
+    rotate: true
+    rotateSpeed: 4
+
+    reload: 20
+    shootSound: shootArc
+    shootSoundVolume: 0.1
+
+    shoot: {
+      type: ShootPattern
+      shots: 2
+      shotDelay: 0
+    }
+
+    bullet: {
+      type: LightningBulletType
+      damage: 14
+      lightningLength: 12
+      lightningColor: 84f5f5
+    }
+  }
+]
+
+	  "research": {
+		parent: w1-a-ion
+		requirements: [
+		{ item: copper, amount: 200},
+		{ item: silver, amount: 100},
+		{ item: titanium, amount: 400},
+		{ item: graphite, amount: 500},
+		{ item: silicon, amount: 400}
+    	]
+	}

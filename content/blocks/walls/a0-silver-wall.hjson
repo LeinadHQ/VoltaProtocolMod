@@ -1,0 +1,24 @@
+type: Wall
+name: Muro de plata
+description: Refleja ocasionalmente proyectiles débiles gracias a su superficie pulida.
+
+size: 1
+health: 460
+envEnabled: [any]
+
+chanceDeflect: 0.08
+
+requirements: [
+  silver/6
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: copper-wall-large
+  objectives: [silver]
+  requirements: [
+    silver/120
+  ]
+}
+
+category: defense

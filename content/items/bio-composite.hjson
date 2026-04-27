@@ -1,0 +1,9 @@
+name: Bio-Composite
+color: 6effc2
+
+flammability: 0.2
+explosiveness: 0
+
+research: {
+	parent: silver
+}

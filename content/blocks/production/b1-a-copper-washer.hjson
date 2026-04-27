@@ -1,0 +1,83 @@
+type: GenericCrafter
+name: Copper Washer
+description: Procesa cobre mediante lavado a presión para extraer trazas de plata ocultas en el mineral.
+size: 2
+health: 320 
+craftTime: 95
+envEnabled: [any]
+
+hasLiquids: true
+liquidCapacity: 30
+hasItems: true
+
+ambientSound: loopSpray
+ambientSoundVolume: 0.04
+
+requirements: [
+  copper/120
+  lead/80
+  graphite/50
+],
+	"category": "crafting",
+	"research": {
+		"parent": "graphite-press",
+    "objectives": [ "silicon" ]
+  "requirements": [
+		"copper/1000",
+		"lead/1500",
+		"graphite/800",
+    "silicon/150"
+  ]
+}
+
+consumes: {
+  items: [
+    copper/3
+  ]
+  liquid: {
+    liquid: water
+    amount: 0.15
+  }
+  power: 0.5
+}
+
+outputItems: [
+  {
+    item: silver
+    amount: 1
+  }
+  {
+    item: scrap
+    amount: 1
+  }
+]
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawLiquidTile
+      drawLiquid: water
+      padding: 2.5
+    }
+    {
+      type: DrawRegion
+      suffix: -helice
+      spinSprite: true
+      rotateSpeed: 5
+    }
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+    {
+      type: DrawBubbles
+      color: dfe9f5
+      amount: 10
+      spread: 4
+    }
+  ]
+}

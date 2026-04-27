@@ -1,0 +1,80 @@
+type: GenericCrafter
+name: Cámara de Cloración
+description: Sintetiza Oxicloruro utilizando plata como catalizador para oxidar compuestos de chatarra en una solución acuosa.
+size: 2
+hasLiquids: true
+hasItems: true
+craftTime: 60
+envEnabled: [any]
+
+ambientSound: loopSpray
+ambientSoundVolume: 0.04
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 6
+  length: 7
+  lifetime: 30
+  cone: 360
+  colorFrom: d1efff
+  colorTo: 8ca9ad
+  sizeFrom: 1.3
+  sizeTo: 0
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawDefault
+    },
+    {
+      type: DrawLiquidRegion
+      drawLiquid: water
+      suffix: -water
+      waveLW: 0.3
+      waveLS: 0.1
+    },
+    {
+      type: DrawLiquidRegion
+      drawLiquid: oxychloride
+      suffix: -oxychloride
+      waveLW: 1.5
+      waveLS: 1.2
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+
+consumes: {
+  power: 1.5
+  items: [
+    silver/1
+    scrap/2
+  ]
+  liquid: water/0.2
+}
+
+outputLiquid: oxychloride/0.15
+
+requirements: [
+  silver/80
+  graphite/60
+  metaglass/40
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: b1-a-copper-washer
+  objectives: [silver]
+  requirements: [
+    silver/1200
+    graphite/1500
+    metaglass/1250
+  ]
+}
+
+category: crafting

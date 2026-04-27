@@ -1,0 +1,43 @@
+type: Reconstructor
+name: silver reconstructor
+envEnabled: [any]
+description: Mejora a tier 2 la unidad ion.
+
+size: 3
+health: 600
+category: units
+
+requirements: [
+  copper/100
+  lead/80
+  silicon/100
+  silver/140
+],
+"category": "units",
+	"research": {
+		"parent": "vp1-argent-assembler",
+  "requirements": [
+		"copper/1000",
+		"lead/1500",
+		"silicon/800",
+    "titanium/450",
+    "silver/1000"
+  ]
+}
+
+constructTime: 2000
+
+upgrades: [
+  [w1-a-ion, w1-b-valance]
+]
+
+consumes: {
+  items: {
+    items: [
+      silicon/40
+      silver/25
+      titanium/40
+    ]
+  }
+  power: 2
+}

@@ -1,0 +1,15 @@
+type: Liquid
+name: flux-phase
+description: Fluido energético altamente inestable que amplifica procesos industriales avanzados.
+
+color: a8f0ff
+lightColor: 7df9ff
+
+viscosity: 0.6
+temperature: 0.3
+heatCapacity: 0.9
+explosiveness: 0.1
+
+research: {
+  parent: bio-plasma
+}

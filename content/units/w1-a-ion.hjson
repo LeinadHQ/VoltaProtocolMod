@@ -1,0 +1,100 @@
+type: tank
+name: ion
+
+description: Tanque ligero de asalto equipado con tecnología eléctrica básica.
+
+health: 220
+armor: 2
+speed: 0.9
+hitSize: 12
+range: 90
+outlineRadius: 1
+
+drag: 0.05
+accel: 0.08
+
+rotateSpeed: 2
+faceTarget: false
+
+treadFrames: 6
+treadPullOffset: 1
+
+treadRects: [
+  {
+    type: rect
+    x: -14
+    y: -20
+    width: 6
+    height: 40
+  },
+  {
+    type: rect
+    x: 8
+    y: -20
+    width: 6
+    height: 40
+  }
+]
+
+weapons: [
+  {
+    name: ion-gun
+    x: 0
+    y: -1
+    mirror: false
+    rotate: true
+
+    reload: 35
+    recoil: 1
+
+    shootSound: shoot
+
+    shootY: 6
+
+    parts: [
+      {
+        type: RegionPart
+        suffix: -barrel
+        progress: recoil
+        moveY: -1
+      }
+    ]
+
+    bullet: {
+      type: BasicBulletType
+      speed: 4
+      damage: 12
+      width: 4
+      height: 6
+
+      status: electrified
+      statusDuration: 60
+
+      frontColor: 84f5f5
+      backColor: 5eb1b1
+
+      trailEffect: {
+        type: ParticleEffect
+        particles: 1
+        lifetime: 12
+        length: 3
+        sizeFrom: 1.5
+        sizeTo: 0
+        colorFrom: 84f5f5
+        colorTo: ffffff
+      }
+      trailChance: 0.5
+
+      hitEffect: hitBulletSmall
+    }
+  }
+]
+
+research: {
+  parent: vp1-argent-assembler
+  requirements: [
+    { item: copper, amount: 120 },
+    { item: silver, amount: 80 },
+    { item: silicon, amount: 100 }
+  ]
+}

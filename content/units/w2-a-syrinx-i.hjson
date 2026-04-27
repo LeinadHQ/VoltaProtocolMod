@@ -1,0 +1,128 @@
+type: hover
+name: Syrinx-I
+description: Aerodeslizador de apoyo que posee un núcleo de autoreparación pasiva y 2 cañones que pueden debilitar a los enemigos.
+speed: 1.2
+health: 275
+armor: 2
+hitSize: 11
+outlineRadius: 2
+
+hovering: true
+canDrown: false
+
+shadowElevation: 0.2
+drag: 0.05
+rippleScale: 2.5
+
+useEngineElevation: false
+trailLength: 15
+trailColor: 84f5f5
+engineOffset: 5
+engineSize: 2
+engineColor: 5eb1b1
+
+abilities: [
+  {
+    type: RepairFieldAbility
+    amount: 18
+    reload: 120
+    range: 0
+  }
+]
+
+immunities: [
+  melting,
+  burning
+]
+
+loopSound: none
+
+parts: [
+    {
+      type: HoverPart
+      x: 3
+      y: -3
+      mirror: true
+      radius: 4
+      phase: 90
+      stroke: 2
+      layerOffset: -0.001
+      color: 84f5f5
+    },
+    {
+      type: HoverPart
+      x: 3
+      y: 3
+      mirror: true
+      radius: 4
+      phase: 90
+      stroke: 2
+      layerOffset: -0.001
+      color: 84f5f5
+    }
+]
+
+weapons: [
+  {
+    name: w2-a-syrinx-i-weapon
+    shootX: 2
+    shootY: 5
+    x: 0.5
+    y: -1
+    reload: 18
+    inaccuracy: 4
+    mirror: true
+    alternate: true
+    recoil: 2
+    shootSound: shoot
+
+    bullet: {
+      type: BasicBulletType
+       speed: 5
+       lifetime: 32.8
+      damage: 12
+      width: 5
+      height: 8
+
+      status: melting
+      statusDuration: 80
+
+      shootEffect: shootSmall
+      smokeEffect: shootSmallSmoke
+
+      frontColor: b3ffff
+      backColor: 84f5f5
+      
+      trailEffect: {
+       type: ParticleEffect
+       particles: 1
+       lifetime: 20
+       length: 3
+       sizeFrom: 2
+       sizeTo: 0
+       colorFrom: 84f5f5
+       colorTo: ffffff
+       }
+trailChance: 1
+
+      hitEffect: {
+        type: ParticleEffect
+        line: true
+        particles: 3
+        lifetime: 13
+        length: 8
+        colorFrom: 84f5f5
+        colorTo: 5eb1b1
+      }
+    }
+  }
+]
+
+	  research: {
+		parent: u1-syrinx-hangar
+		requirements: [
+		{ item: lead, amount: 500},
+		{ item: silver, amount: 250},
+		{ item: silicon, amount: 200}
+    	]
+	}

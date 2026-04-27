@@ -1,0 +1,163 @@
+type: tank
+name: Isotope
+description: Tanque de asalto pesado relativamente pequeño. Posee un cañon estabilizados con paladio para alimentar un cañón láser de alta potencia, además de contan con pequeños drones de apoyo. Su chasis reforzado le permite liderar avances en zonas de alta resistencia.
+
+health: 1650
+armor: 10
+speed: 0.7
+hitSize: 16
+outlineRadius: 2
+
+range: 150
+
+drag: 0.05
+accel: 0.07
+
+omniMovement: false
+rotateSpeed: 1.6
+faceTarget: false
+
+treadFrames: 8
+treadPullOffset: 1
+treadRects: [
+  {
+    type: rect
+    x: -24
+    y: -35
+    width: 13
+    height: 70
+  },
+  {
+    type: rect
+    x: 12
+    y: -35
+    width: 13
+    height: 70
+  }
+]
+
+weapons: [
+
+  {
+    name: w1-c-isotope-main-turret
+    x: 0
+    y: -2
+    mirror: false
+    rotate: true
+    top: true
+    rotateSpeed: 3
+    reload: 120
+    recoil: 1.5
+    shootSound: shootLancer
+    shootY: 14
+    heatColor: ffa64d
+    
+    parts: [
+      {
+        type: RegionPart
+        suffix: -barrel
+        under: true
+        outline: false
+        x: 0
+        y: 7
+        progress: recoil
+        moveY: -1
+      }
+    ]
+    bullet: {
+      type: laser
+      damage: 125
+      length: 180
+      width: 14
+ 
+      colors: [d96c00, ffa64d, 5eb1b1, 84f5f5]
+
+      status: electrified
+      statusDuration: 150
+
+      shootEffect: shootBig
+      smokeEffect: shootBigSmoke
+
+      hitEffect: hitLaser
+    }
+  },
+  {
+    name: w1-c-isotope-side
+    x: 5
+    y: 4
+
+    shootX: 8
+
+    mirror: true
+    rotate: true
+    rotateSpeed: 4
+    reload: 19
+    shootSound: shoot
+
+    shootWarmupSpeed: 0.08 
+    minWarmup: 0.9
+
+    heatColor: ffa64d
+
+    parts: [
+      {
+        type: RegionPart
+        suffix: -drone
+        progress: warmup
+
+        x: 0
+        y: 0
+        
+        moveX: 8
+        moveY: 1
+        
+        under: true 
+        layerOffset: -1
+      }
+    ]
+
+    bullet: {
+     type: BasicBulletType
+     speed: 5.5
+     damage: 17
+     width: 3
+     height: 5
+     pierce: true
+     pierceCap: 2
+
+     homingPower: 0.08 
+     homingRange: 50 
+     homingDelay: 5
+
+     frontColor: 84f5f5
+     backColor: 5eb1b1
+
+     trailLength: 8
+     trailWidth: 1
+     trailColor: 84f5f5
+  
+    trailEffect: {
+     type: ParticleEffect
+     particles: 1
+     lifetime: 20
+     length: 2
+     sizeFrom: 1
+     sizeTo: 0
+     colorFrom: b3ffff
+     colorTo: 5eb1b1
+    }
+    trailChance: 0.5
+   }
+  }
+]
+
+research: {
+  parent: w1-b-valance
+  requirements: [
+    { item: copper, amount: 800 },
+    { item: silver, amount: 600 },
+    { item: palladium, amount: 400 },
+    { item: titanium, amount: 900 },
+    { item: silicon, amount: 700 }
+  ]
+}

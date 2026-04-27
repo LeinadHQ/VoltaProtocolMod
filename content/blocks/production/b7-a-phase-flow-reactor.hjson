@@ -1,0 +1,92 @@
+type: GenericCrafter
+name: Reactor de Flujo de Fase
+description: Sintetiza flux-phase combinando aleaciones de fase con compuestos reactivos en un entorno altamente energizado.
+
+size: 4
+health: 700
+
+hasPower: true
+hasItems: true
+hasLiquids: true
+liquidCapacity: 80
+
+craftTime: 80
+envEnabled: [any]
+category: crafting
+
+ambientSound: loopReactor
+ambientSoundVolume: 0.07
+
+requirements: [
+  silicon/300
+  phase-fabric/120
+  metaglass/200
+  plastanium/150
+  titanium/200
+]
+
+research: {
+  parent: b3-a-oxychloride-chamber
+  objectives: [ oxychloride, phase-fabric ]
+  requirements: [
+    phase-fabric/800
+    silicon/2000
+    metaglass/3500
+    plastanium/2000
+    titanium/5000
+  ]
+}
+
+consumes: {
+  power: 12
+
+  items: [
+    phase-fabric/1
+    silicon/2
+  ]
+
+  liquid: {
+    liquid: oxychloride
+    amount: 0.3
+  }
+}
+
+outputLiquid: flux-phase/0.3
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: flux-phase
+      padding: 4
+    },
+    {
+      type: DrawBubbles
+      color: 7df9ff
+      amount: 14
+      spread: 6
+    },
+    {
+      type: DrawGlowRegion
+      suffix: -core
+      color: 7df9ff
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 16
+  lifetime: 50
+  length: 30
+  colorFrom: a8f0ff
+  colorTo: ffffff
+}

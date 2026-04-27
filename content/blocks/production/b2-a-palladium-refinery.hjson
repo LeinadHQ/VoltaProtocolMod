@@ -1,0 +1,85 @@
+type: GenericCrafter
+name: Refinería de Paladio
+description: Refina plata y titanio mediante inducción de alta frecuencia para crear paladio puro. Requiere gran cantidad de energía.
+size: 3
+health: 400
+hasPower: true
+hasItems: true
+craftTime: 90
+envEnabled: [any]
+category: crafting
+
+ambientSound: loopMachine
+ambientSoundVolume: 0.05
+
+requirements: [
+  silicon/180
+  silver/100
+  titanium/125
+  graphite/70
+  copper/ 50
+],
+"category": "crafting",
+	"research": {
+		"parent": "b1-a-copper-washer",
+		"objectives": [ "titanium" ]
+  "requirements": [
+		"silicon/1000",
+		"silver/1500",
+		"graphite/2000",
+    "titanium/1200"
+  ]
+}
+
+consumes: {
+  power: 8.5
+  
+  items: {
+    items: [
+      silver/3
+      titanium/2
+    ]
+  }
+}
+
+outputItem: palladium/1
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawRegion
+      suffix: -helice
+      rotateSpeed: 5
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    },
+    {
+      type: DrawGlowRegion
+      suffix: -heat
+      color: ff9e1b
+    }
+  ]
+}
+
+craftEffect: {
+  type: MultiEffect
+  effects: [
+    {
+      type: RadialEffect
+      amount: 4
+      effect: shootBigSmoke
+    },
+    {
+      type: ParticleEffect
+      particles: 10
+      length: 20
+      lifetime: 40
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+type: ItemTurret
+name: tipe-1
+description: Primer prototipo de una torreta de disparo rapido con un alcance medio, requiere bastante municion para funcionar eficientemente.
+category: turret
+outlineRadius: 1
+envEnabled: [any]
+
+size: 2
+health: 900
+range: 200
+reload: 12
+inaccuracy: 4
+recoil: 1.5
+
+hasLiquids: true
+liquidCapacity: 25
+
+consumes: {
+  coolant: {
+    amount: 0.1
+  }
+}
+
+drawer: { 
+  type: DrawTurret 
+  drawers: [ 
+    { 
+    type: DrawLiquidTile 
+    drawLiquid: 
+    coolant padding: 2 
+    } 
+    { 
+    type: DrawTurret 
+    parts: [ 
+    { type: RegionPart 
+    suffix: -top 
+    progress: recoil 
+    moveY: -1.5  
+    } 
+  ] 
+} 
+] 
+}
+
+requirements: [
+ copper/120
+ lead/90
+ graphite/60
+],
+
+	research: {
+  researchCostMultiplier: 0.3
+  parent: duo
+  objectives: [ graphite ]
+  requirements: [
+    copper/1000
+    lead/900
+    graphite/800
+  ]
+}
+
+ammoTypes: {
+
+scrap: {
+  type: BasicBulletType
+  speed: 4
+  damage: 15
+  width: 6
+  height: 8
+  reloadMultiplier: 0.8
+  
+  fragBullets: 2
+  fragVelocityMin: 0.8
+  fragVelocityMax: 1.5
+  fragLifeMin: 0.5
+  fragLifeMax: 0.9
+  fragSpread: 30
+  fragRandomSpread: 15
+  
+  fragBullet: {
+    type: BasicBulletType
+    damage: 5
+    speed: 2
+    width: 3
+    height: 3
+    shrinkY: 0.5
+    lifetime: 15
+    backColor: 738290
+    frontColor: 98adb0
+  }
+}
+
+ graphite: {
+  type: BasicBulletType
+  speed: 6
+  damage: 25
+  rangeChange: +20
+  reloadMultiplier: 0.9
+  width: 8
+  height: 12
+  ammoMultiplier: 2
+
+  shootEffect: {
+    type: ParticleEffect
+    particles: 6
+    lifetime: 25
+    length: 6
+    cone: 120
+    colorFrom: F3E979
+    colorTo: C8A15A
+  }
+}
+
+ silicon: {
+  type: BasicBulletType
+  speed: 7
+  damage: 15
+  width: 7
+  height: 10
+  homingPower: 0.08
+  ammoMultiplier: 2
+ }
+
+ pyratite: {
+  type: BasicBulletType
+  speed: 4
+  damage: 33
+  width: 10
+  height: 12
+  incendChance: 0.4
+  ammoMultiplier: 2
+
+  shootEffect: {
+  type: ParticleEffect
+  particles: 4
+  lifetime: 30
+  length: 5
+  cone: 140
+  sizeFrom: 2
+  sizeTo: 1
+  colorFrom: F7C46C
+  colorTo: A87A32
+}
+
+smokeEffect: shootSmallSmoke
+}
+}

@@ -1,0 +1,202 @@
+type: hover
+name: Syrinx-III
+description: Plataforma avanzada equipada con núcleos de paladio y sistemas de bio-plasma. Proporciona soporte activo, escudos y control de campo.
+
+speed: 1.35
+health: 720
+armor: 7
+hitSize: 13
+outlineRadius: 2
+
+hovering: true
+canDrown: false
+
+shadowElevation: 0.25
+drag: 0.045
+rippleScale: 3
+
+engineOffset: 6
+engineSize: 2.5
+engineColor: ffa64d
+
+trailLength: 18
+trailColor: 84f5f5
+
+immunities: [
+  melting,
+  burning,
+  wet
+]
+
+abilities: [
+  {
+    type: RepairFieldAbility
+    amount: 25
+    reload: 90
+    range: 25
+  },
+  {
+  type: ShieldArcAbility
+
+   radius: 35
+   regen: 0.6
+   max: 500
+   cooldown: 360
+
+   angle: 100
+   angleOffset: 0
+
+   width: 5
+
+   color: 84f5f5
+
+   hitSound: shieldHit
+   breakSound: shieldBreak
+
+   drawArc: true
+  },
+  {
+    type: StatusFieldAbility
+    effect: overclock
+    duration: 140
+    reload: 180
+    range: 30
+  }
+]
+
+parts: [
+  {
+    type: HoverPart
+    x: 4
+    y: -4
+    mirror: true
+    radius: 5
+    stroke: 2
+    color: ffa64d
+    layerOffset: -0.001
+  },
+  {
+    type: HoverPart
+    x: 4
+    y: 4
+    mirror: true
+    radius: 5
+    stroke: 2
+    color: 84f5f5
+    layerOffset: -0.001
+  }
+]
+
+weapons: [
+  {
+    name: syrinx-iii-main
+    shootX: 3
+    shootY: 6
+    x: 1
+    y: -1
+    reload: 20
+    mirror: true
+    alternate: true
+    recoil: 2
+    inaccuracy: 3
+
+    shootSound: shoot
+
+    bullet: {
+      type: BasicBulletType
+      speed: 5.5
+      damage: 18
+      width: 6
+      height: 10
+      lifetime: 40
+
+      homingPower: 0.1
+      homingRange: 80
+
+      status: sapped
+      statusDuration: 100
+
+      frontColor: e2f2ff
+      backColor: 84f5f5
+
+      trailEffect: {
+        type: ParticleEffect
+        particles: 2
+        lifetime: 18
+        length: 6
+        sizeFrom: 2
+        sizeTo: 0
+        colorFrom: 84f5f5
+        colorTo: ffffff
+      }
+      trailChance: 1
+
+      fragBullets: 2
+      fragSpread: 12
+      fragRandomSpread: 8
+ 
+      fragVelocityMin: 0.8
+      fragVelocityMax: 1.3
+
+      fragLifeMin: 0.8
+      fragLifeMax: 1.1
+
+      fragBullet: {
+       type: BasicBulletType
+       damage: 7
+       speed: 3.5
+       width: 4
+       height: 5
+       lifetime: 28
+
+       frontColor: b3ffff
+       backColor: 5eb1b1
+
+       status: sapped
+       statusDuration: 60
+     }
+    }
+  },
+
+  {
+  name: syrinx-iii-defense
+  x: 0
+  y: 4
+
+  rotate: true
+  rotateSpeed: 5
+
+  reload: 30
+  shootSound: shootLocus
+  shootSoundVolume: 0.3
+
+  shootY: 6
+
+  bullet: {
+    type: Laser
+    damage: 25
+    length: 80
+    width: 5
+
+    status: sapped
+    statusDuration: 60
+
+    colors: [b3ffff, 84f5f5, 5eb1b1]
+
+    hitEffect: hitLaser
+    shootEffect: shootSmall
+    smokeEffect: shootSmallSmoke
+   }
+ }
+]
+
+research: {
+  parent: w2-b-syrinx-ii
+  requirements: [
+    { item: copper, amount: 700 },
+    { item: silver, amount: 800 },
+    { item: palladium, amount: 500 },
+    { item: titanium, amount: 600 },
+    { item: silicon, amount: 800 }
+  ]
+}

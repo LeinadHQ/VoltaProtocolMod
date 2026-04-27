@@ -1,0 +1,105 @@
+type: GenericCrafter
+name: Separador Catalítico de Paladio
+description: Extrae paladio mediante cloración química utilizando oxicloruro. Mucho más eficiente que los métodos convencionales.
+
+size: 4
+health: 650
+
+hasPower: true
+hasItems: true
+hasLiquids: true
+liquidCapacity: 60
+
+craftTime: 70
+envEnabled: [any]
+category: crafting
+
+ambientSound: loopChemical
+ambientSoundVolume: 0.06
+
+requirements: [
+  silicon/250
+  palladium/80
+  metaglass/120
+  titanium/180
+  graphite/120
+  plastanium/80
+]
+
+research: {
+  parent: b2-a-palladium-refinery
+  objectives: [ oxychloride, plastanium ]
+  requirements: [
+    silver/2000
+    palladium/800
+    silicon/1500
+    metaglass/1200
+    titanium/2000
+    plastanium/1500
+  ]
+}
+
+consumes: {
+  power: 10
+
+  items: [
+    scrap/4
+    silver/2
+  ]
+
+  liquid: {
+    liquid: oxychloride
+    amount: 0.25
+  }
+}
+
+outputItem: palladium/2
+outputLiquid: slag/0.1
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: oxychloride
+      padding: 3
+    },
+    {
+      type: DrawBubbles
+      color: e1897a
+      amount: 12
+      spread: 5
+    },
+    {
+      type: DrawGlowRegion
+      suffix: -reactor
+      color: e1897a
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+
+craftEffect: {
+  type: MultiEffect
+  effects: [
+    {
+      type: ParticleEffect
+      particles: 12
+      lifetime: 40
+      length: 25
+      colorFrom: e1897a
+      colorTo: f5b0a5
+    },
+    {
+      type: RadialEffect
+      amount: 3
+      effect: steam
+    }
+  ]
+}

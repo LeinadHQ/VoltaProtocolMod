@@ -1,0 +1,93 @@
+type: ConsumeGenerator
+name: Turbina de convección de Escoria
+description: Aprovecha el calor extremo de la escoria, además de agua que actúa como fluido de trabajo y refrigerante para generar electricidad. Puede ser usado junto al horno de copelación.
+size: 3
+health: 1200
+hasLiquids: true
+liquidCapacity: 60
+envEnabled: [any]
+
+powerProduction: 12.0
+
+ambientSound: loopSteam
+ambientSoundVolume: 0.08
+
+requirements: [
+  silver/120
+  palladium/80
+  lead/150
+  metaglass/80
+  silicon/100
+]
+
+category: power
+
+consumes: {
+  liquids: [
+    {
+      liquid: slag
+      amount: 0.6
+    },
+    {
+      liquid: water
+      amount: 0.4
+    }
+  ]
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawRegion
+      suffix: -bottom
+    }
+    {
+      type: DrawLiquidRegion
+      drawLiquid: water
+      suffix: -water
+      alpha: 0.6
+    }
+    {
+      type: DrawGlowRegion
+      suffix: -heat
+      color: d6f0ff
+    }
+    {
+      type: DrawLiquidRegion
+      suffix: -slag
+      drawLiquid: slag
+      alpha: 0.7
+    }
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawRegion
+      suffix: -rotor
+      rotateSpeed: 5
+    }
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+    {
+      type: DrawParticles
+      color: cfd3d6
+      alpha: 0.7
+      particles: 10
+    }
+  ]
+}
+
+research: {
+  parent: thermal-generator
+  "objectives": [ b1-b-cupellation-furnace ]
+  requirements: [
+    silver/1500
+    palladium/600
+    lead/3200
+    metaglass/2000
+    silicon/2150
+  ]
+}

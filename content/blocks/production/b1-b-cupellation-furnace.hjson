@@ -1,0 +1,74 @@
+type: GenericCrafter
+name: Horno de Copelación
+description: Separa trazas de plata de grandes cantidades de plomo mediante oxidación térmica. Libera escoria líquida como subproducto.
+size: 3
+health: 750
+hasPower: true
+hasItems: true
+hasLiquids: true
+liquidCapacity: 60
+craftTime: 60
+envEnabled: [any]
+
+ambientSound: loopSmelter
+ambientSoundVolume: 0.05
+
+requirements: [
+  lead/150
+  graphite/120
+  silicon/80
+  titanium/100
+  silver/50
+],
+
+"research": {   
+		"parent": "b1-a-copper-washer",
+		"objectives": [ "titanium" ]
+"requirements": [
+		"lead/2000",
+		"silicon/1500",
+		"titanium/1900",
+    "silver/1200"
+  ]
+}
+
+consumes: {
+  power: 5
+  items: {
+    items: [
+      lead/5
+      coal/3
+    ]
+  }
+}
+
+outputItem: silver/3
+outputLiquid: slag/0.4
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawFlame
+    },
+    {
+      type: DrawLiquidRegion
+      drawLiquid: slag
+      suffix: -liquid
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    },
+    {
+      type: DrawGlowRegion
+      suffix: -heat
+      color: ff5a3a
+    }
+  ]
+}
+
+category: crafting

@@ -1,0 +1,13 @@
+type: liquid
+name: Bio-Plasma Argentado
+description: Una suspensión coloidal de nanopartículas de plata en una base electrolítica. Posee propiedades regenerativas para estructuras aliadas.
+color: e2f2ff
+lightColor: 84f5f533
+heatCapacity: 1.2
+viscosity: 0.6
+explosiveness: 0
+flammability: 0
+
+research: {
+  parent: oxychloride
+}

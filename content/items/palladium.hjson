@@ -1,0 +1,15 @@
+name: Palladium
+description: Un metal raro, denso y resistente, con alta capacidad conductora lo que le permite ser utilizado en aleaciones y sistemas de energía avanzados. 
+
+color: e1897a
+
+radioactivity: 0.1
+explosiveness: 0
+flammability: 0
+
+hardness: 4
+cost: 3
+buildable: true
+research: {
+	parent: silver,
+}

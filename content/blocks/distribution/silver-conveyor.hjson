@@ -1,0 +1,22 @@
+type: Conveyor
+name: Cinta transportadora de plata
+description: "Utiliza un recubrimiento de plata para reducir la fricción, permitiendo un transporte de recursos más fluido. Es ligeramente mas lento que la cinta de transporte de titanio"
+health: 65
+speed: 0.067
+displayedSpeed: 9
+
+requirements: [
+  silver/1
+  lead/1
+]
+
+category: distribution
+
+research: {
+  parent: conveyor
+  "objectives": [ silver ]
+  requirements: [
+    silver/230
+    lead/350
+  ]
+}

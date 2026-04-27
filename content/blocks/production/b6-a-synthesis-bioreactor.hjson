@@ -1,0 +1,67 @@
+type: GenericCrafter
+name: Biorreactor de Síntesis
+description: Combina plastanio con bio-plasma para crear VitaGel.
+
+size: 3
+health: 380
+hasPower: true
+hasItems: true
+hasLiquids: true
+
+liquidCapacity: 40
+
+craftTime: 100
+
+requirements: [
+  silicon/150
+  silver/130
+  palladium/120
+  metaglass/100
+  plastanium/90
+]
+
+research: {
+  parent: b3-b-bioplasma-centrifuge
+  objectives: [ bio-plasma, plastanium ]
+  requirements: [
+    palladium/1000
+    silicon/2900
+    metaglass/2000
+    silver/2000
+    plastanium/1150
+  ]
+}
+
+consumes: {
+  power: 5
+  items: [
+    plastanium/2
+    silver/1
+  ]
+  liquid: bio-plasma/0.15
+}
+
+outputItem: bio-composite/1
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    { 
+    type: DrawDefault 
+    }
+    { 
+    type: DrawLiquidRegion 
+    drawLiquid: bio-plasma 
+    }
+    { 
+    type: DrawBubbles 
+    color: 5effb1 
+    amount: 8 
+    }
+  ]
+}
+
+ambientSound: loopRegen
+ambientSoundVolume: 0.05
+
+category: crafting

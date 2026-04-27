@@ -1,0 +1,28 @@
+type: Wall
+name: Muro de paladio
+description: Muro resistente al calor, que puede dañar a objetivos cercanos al ser impactado.
+
+size: 1
+health: 600
+envEnabled: [any]
+
+insulated: true
+
+lightningChance: 0.09
+lightningLength: 6
+lightningDamage: 12
+
+requirements: [
+  palladium/6
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: a0-silver-wall
+  objectives: [palladium]
+  requirements: [
+    palladium/200
+  ]
+}
+
+category: defense
