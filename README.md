@@ -1,3 +1,5 @@
-El mod aun esta en fase de desarrollo, pero busca agregar contenido que pueda ayudar a complementar el vanilla de mindustry utilizando nuevos materiales y estructuras.
-Por ahora solo es contenido para Serpulo, se espera que en un futuro se logre llegar a Erekir y poder llegar a la creacion de un nuevo planeta.
-De momento esta principalmente en español y se espera en un futuro cercano lograr traducirlo completamente al ingles.
+The mod is still in development, but it aims to add content that complements the base version of Mindustry with new materials and structures, based on Serpulo’s assets.
+For now, there is only content for Serpulo; it is expected that Erekir will be added in the future and that a new planet will be available for creation.
+It is currently translated into Spanish and English (there may be some translation errors).
+
+V0.2 beta: Some sprites have been updated, additional content has been added, and translations into English and Spanish have been completed.
