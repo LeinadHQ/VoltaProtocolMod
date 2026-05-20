@@ -1,0 +1,43 @@
+type: Reconstructor
+
+size: 3
+health: 750
+category: units
+envEnabled: [any]
+
+requirements: [
+  vw-1-silver/180
+  silicon/140
+  titanium/120
+  metaglass/100
+]
+
+research: {
+  parent: u1-syrinx-hangar
+  objectives: [u1-syrinx-hangar, vx-1-oxychloride]
+  requirements: [
+    vw-1-silver/1200
+    silicon/900
+    titanium/800
+    metaglass/700
+  ]
+}
+
+constructTime: 1800
+
+upgrades: [
+  [w2-a-syrinx-i, w2-b-syrinx-ii]
+]
+
+consumes: {
+  power: 3.5
+  items: [
+    silicon/35
+    vw-1-silver/30
+    titanium/25
+  ]
+  liquid: {
+    liquid: vx-1-oxychloride
+    amount: 0.15
+  }
+}

@@ -1,0 +1,39 @@
+type: UnitFactory
+
+envEnabled: [any]
+
+size: 3
+health: 450
+category: units
+
+consumes: {
+  power:1.5
+}
+
+plans: [
+  {
+    unit: w1-a-ion
+    time: 1200
+    requirements: [
+      silicon/40
+      vw-1-silver/25
+    ]
+  }
+]
+
+requirements: [
+  vw-1-silver/120
+  lead/100
+  silicon/60
+],
+	"category": "units",
+	"research": {
+		"parent": "vp-temporal-tt",
+		"objectives": [ "ground-factory" ]
+  "requirements": [
+		"copper/1000",
+		"graphite/400",
+		"silicon/250",
+    "vw-1-silver/350"
+    ]
+	}
