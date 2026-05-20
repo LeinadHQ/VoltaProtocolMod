@@ -1,0 +1,26 @@
+type: StackConveyor
+
+size: 1
+health: 120
+category: distribution
+
+speed: 0.05
+itemCapacity: 20
+
+requirements: [
+  vw-4-bio-composite/1
+  silicon/2
+  vw-2-palladium/3
+]
+
+research: {
+  parent: s-1-silver-conveyor
+  objectives: [vw-2-palladium, vw-4-bio-composite, s-1-silver-conveyor]
+  requirements: [
+    plastanium/2000
+    silicon/2500
+    vw-1-silver/4000
+    vw-2-palladium/2000
+    vw-4-bio-composite/500
+  ]
+}
