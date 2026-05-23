@@ -14,10 +14,10 @@ requirements: [
 
 research: {
   researchCostMultiplier: 0.3
-  parent: copper-wall-large
-  objectives: [silver]
+  parent: vp-temporal-tt
+  objectives: [vw-1-silver]
   requirements: [
-    silver/120
+    vw-1-silver/120
   ]
 }
 
