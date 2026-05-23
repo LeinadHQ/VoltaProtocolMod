@@ -1,0 +1,26 @@
+.gradle/
+build/
+bin/
+out/
+local.properties
+.classpath
+.project
+.settings/
+.idea/
+.vscode/
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## java
+*.class
+*.jar
+*.log
+*.tmp
+*.bak
+*.swp
+
+*.temp
+/temp/
+*.gif
