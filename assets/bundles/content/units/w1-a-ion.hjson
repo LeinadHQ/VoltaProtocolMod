@@ -1,0 +1,97 @@
+type: tank
+
+health: 220
+armor: 2
+speed: 0.9
+hitSize: 12
+range: 90
+outlineRadius: 1
+
+drag: 0.05
+accel: 0.08
+
+omniMovement: false
+rotateSpeed: 2
+faceTarget: false
+
+treadFrames: 6
+treadPullOffset: 1
+
+treadRects: [
+  {
+    type: rect
+    x: -15
+    y: -22
+    width: 11
+    height: 29
+  },
+  {
+    type: rect
+    x: 5
+    y: -22
+    width: 11
+    height: 29
+  }
+]
+
+weapons: [
+  {
+    name: w1-a-ion-gun
+    x: 0
+    y: 0
+    mirror: false
+    rotate: true
+    rotateSpeed: 6
+
+    reload: 35
+    recoil: 1
+
+    shootSound: shoot
+
+    shootY: 5
+
+    parts: [  
+      {
+        type: RegionPart
+        suffix: ""
+      }
+    ]
+
+    bullet: {
+      type: BasicBulletType
+      speed: 4
+      damage: 12
+      width: 4
+      height: 6
+
+      status: electrified
+      statusDuration: 60
+
+      frontColor: 84f5f5
+      backColor: 5eb1b1
+
+      trailEffect: {
+        type: ParticleEffect
+        particles: 1
+        lifetime: 12
+        length: 3
+        sizeFrom: 1.5
+        sizeTo: 0
+        colorFrom: 84f5f5
+        colorTo: ffffff
+      }
+      trailChance: 0.5
+
+      hitEffect: hitBulletSmall
+    }
+  }
+]
+
+research: {
+  parent: vp1-argent-assembler
+  requirements: [
+    { item: copper, amount: 120 },
+    { item: vw-1-silver, amount: 80 },
+    { item: silicon, amount: 100 }
+  ]
+}

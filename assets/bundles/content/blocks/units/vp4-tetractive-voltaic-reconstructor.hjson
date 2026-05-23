@@ -1,0 +1,49 @@
+type: Reconstructor
+
+size: 7
+constructTime: 5000
+
+requirements: [
+  silicon/1500
+  vw-2-palladium/1000
+  vw-1-silver/500
+  vw-3-aegesium/600
+  vw-5-voltium/100
+  plastanium/750
+]
+
+consumes: {
+  power: 18
+
+  items: {
+    items: [
+      silicon/850
+      vw-2-palladium/700
+      plastanium/550
+      vw-3-aegesium/250
+    ]
+  }
+    liquids: [
+        vx-1-oxychloride/1.0 
+        vx-2-bio-plasma/0.45
+      ]
+    }
+
+upgrades: [
+  [w1-c-isotope, w1-d-radiolysis]
+  
+  [w2-c-syrinx-iii, w2-d-syrinx-iv]
+]
+
+category: units
+research: {
+  parent: vp3-isotope-reconstructor
+  requirements: [
+    silicon/15000
+    vw-2-palladium/8500
+    plastanium/7500
+    vw-3-aegesium/1200
+    vw-5-voltium/2500
+    vw-1-silver/12000
+  ]
+}

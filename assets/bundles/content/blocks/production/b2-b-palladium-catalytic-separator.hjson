@@ -1,0 +1,100 @@
+type: GenericCrafter
+
+size: 4
+health: 650
+
+hasPower: true
+hasItems: true
+hasLiquids: true
+liquidCapacity: 60
+
+craftTime: 68
+envEnabled: [any]
+category: crafting
+
+requirements: [
+  silicon/250
+  vw-2-palladium/80
+  metaglass/120
+  titanium/180
+  graphite/120
+  plastanium/80
+]
+
+research: {
+  parent: b2-a-palladium-refinery
+  objectives: [ vx-1-oxychloride, plastanium ]
+  requirements: [
+    vw-1-silver/2000
+    vw-2-palladium/800
+    silicon/1500
+    metaglass/1200
+    titanium/2000
+    plastanium/1500
+  ]
+}
+
+consumes: {
+  power: 10
+
+  items: [
+    scrap/4
+    vw-1-silver/2
+  ]
+
+  liquid: {
+    liquid: vx-1-oxychloride
+    amount: 0.25
+  }
+}
+
+outputItem: vw-2-palladium/2
+outputLiquid: slag/0.1
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawLiquidTile
+      drawLiquid: vx-1-oxychloride
+      padding: 3
+    },
+    {
+      type: DrawBubbles
+      color: e1897a
+      amount: 12
+      spread: 5
+    },
+    {
+      type: DrawGlowRegion
+      suffix: -reactor
+      color: e1897a
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+
+craftEffect: {
+  type: MultiEffect
+  effects: [
+    {
+      type: ParticleEffect
+      particles: 12
+      lifetime: 40
+      length: 25
+      colorFrom: e1897a
+      colorTo: f5b0a5
+    },
+    {
+      type: RadialEffect
+      amount: 3
+      effect: steam
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+type: GenericCrafter
+
+size: 2
+hasLiquids: true
+hasItems: true
+craftTime: 60
+envEnabled: [any]
+
+ambientSound: loopSpray
+ambientSoundVolume: 0.04
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 6
+  length: 7
+  lifetime: 30
+  cone: 360
+  colorFrom: d1efff
+  colorTo: 8ca9ad
+  sizeFrom: 1.3
+  sizeTo: 0
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawDefault
+    },
+    {
+      type: DrawLiquidRegion
+      drawLiquid: water
+      suffix: -water
+    },
+    {
+      type: DrawLiquidRegion
+      drawLiquid: vx-1-oxychloride
+      suffix: -oxychloride
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+
+consumes: {
+  power: 1.5
+  items: [
+    vw-1-silver/1
+    scrap/2
+  ]
+  liquid: water/0.2
+}
+
+outputLiquid: vx-1-oxychloride/0.2
+
+requirements: [
+  vw-1-silver/80
+  graphite/60
+  metaglass/40
+]
+
+research: {
+  researchCostMultiplier: 0.3
+  parent: b1-a-copper-washer
+  objectives: [vw-1-silver]
+  requirements: [
+    vw-1-silver/1200
+    graphite/1500
+    metaglass/1250
+  ]
+}
+
+category: crafting

@@ -1,0 +1,90 @@
+type: GenericCrafter
+name: Compactador de Chatarra
+description: Tritura metales básicos para generar chatarra. La escoria fundida actúa como agente térmico, aumentando la eficiencia del proceso.
+
+size: 2
+health: 350
+craftTime: 40
+
+hasPower: true
+hasItems: true
+hasLiquids: true
+
+liquidCapacity: 30
+
+envEnabled: [any]
+
+requirements: [
+  copper/60
+  lead/40
+]
+
+category: crafting
+
+consumes: {
+  power: 1.2
+
+  items: [
+    copper/1
+    lead/1
+  ]
+
+  liquid: slag/0.2
+}
+
+outputItem: scrap/2
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    }
+
+    {
+      type: DrawLiquidRegion
+      drawLiquid: slag
+      alpha: 0.8
+    }
+
+    {
+      type: DrawGlowRegion
+      suffix: -heat
+      color: ff9a3c
+    }
+
+    {
+      type: DrawBubbles
+      color: ff9a3c
+      amount: 6
+      spread: 3
+    }
+  ]
+}
+
+emitLight: true
+lightRadius: 35
+lightColor: ff9a3c
+
+updateEffectChance: 0.08
+
+updateEffect: {
+  type: ParticleEffect
+  particles: 4
+  lifetime: 25
+  colorFrom: ffb266
+  colorTo: d96c00
+}
+
+ambientSound: loopSmelter
+ambientSoundVolume: 0.05
+
+research: {
+  parent: b1-a-copper-washer
+  objectives: [ b1-a-copper-washer ]
+  requirements: [
+    copper/300
+    lead/250
+    vw-1-silver/100
+  ]
+}

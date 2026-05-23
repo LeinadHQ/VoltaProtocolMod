@@ -1,0 +1,74 @@
+type: GenericCrafter
+
+size: 3
+health: 500
+hasPower: true
+hasItems: true
+
+craftTime: 80
+
+requirements: [
+  silicon/300
+  thorium/250
+  plastanium/200
+  metaglass/150
+  vw-1-silver/100
+  vw-2-palladium/125
+]
+
+research: {
+  parent: b1-b-cupellation-furnace
+  objectives: [ thorium, plastanium ]
+  requirements: [
+    thorium/2000
+    silicon/2500
+    metaglass/6100
+    plastanium/2500
+    vw-1-silver/2200
+    vw-2-palladium/3000
+  ]
+}
+
+consumes: {
+  power: 7
+  items: [
+    thorium/2
+    vw-2-palladium/1
+    vw-1-silver/1
+  ]
+}
+
+outputItem: vw-5-voltium/1
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+      type: DrawDefault
+    },
+    {
+      type: DrawGlowRegion
+      suffix: -heat
+      color: fbcb99
+    },
+    {
+      type: DrawBubbles
+      color: bfff80
+      amount: 6
+      spread: 2
+    },
+    {
+      type: DrawFade
+      alpha: 0.35
+    },
+    {
+      type: DrawRegion
+      suffix: -top
+    }
+  ]
+}
+
+ambientSound: loopThoriumReactor
+ambientSoundVolume: 0.06
+
+category: crafting

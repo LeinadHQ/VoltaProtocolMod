@@ -1,0 +1,18 @@
+color: ffa64d
+show: true
+outline: false
+
+damage: 0.6
+reloadMultiplier: 0.8
+speedMultiplier: 0.85
+
+effect: {
+  type: ParticleEffect
+  particles: 6
+  length: 12
+  lifetime: 35
+  colorFrom: ffa64d
+  colorTo: d96c00
+  sizeFrom: 2.5
+  sizeTo: 0
+}

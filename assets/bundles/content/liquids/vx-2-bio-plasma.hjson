@@ -1,0 +1,12 @@
+type: liquid
+
+color: c5e5ff
+lightColor: 84f5f533
+heatCapacity: 1.2
+viscosity: 0.6
+explosiveness: 0
+flammability: 0
+
+research: {
+  parent: vx-1-oxychloride
+}

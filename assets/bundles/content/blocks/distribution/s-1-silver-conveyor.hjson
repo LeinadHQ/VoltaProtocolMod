@@ -1,0 +1,21 @@
+type: Conveyor
+
+health: 65
+speed: 0.067
+displayedSpeed: 9
+
+requirements: [
+  vw-1-silver/1
+  lead/1
+]
+
+category: distribution
+
+research: {
+  parent: vp-temporal-tt
+  objectives: [ vw-1-silver ]
+  requirements: [
+    vw-1-silver/230
+    lead/350
+  ]
+}

@@ -1,0 +1,12 @@
+type: liquid
+
+color: 84f5f5
+gas: true
+flammability: 0.1
+explosiveness: 0.4
+viscosity: 0.3
+coolant: false
+
+research: {
+  parent: vw-1-silver
+}
