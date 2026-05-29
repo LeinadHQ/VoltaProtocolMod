@@ -22,6 +22,5 @@ jobs:
     - name: Upload built jar file
       uses: actions/upload-artifact@v7
       with:
-        archive: false
         name: VoltaProtocol
         path: build/libs/*.jar
