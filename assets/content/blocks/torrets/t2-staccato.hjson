@@ -6,6 +6,8 @@ envEnabled: [any]
 category: turret
 size: 3
 health: 1850
+shootSound: shootDiffuse
+shootSoundVolume: 0.8
 
 range: 260
 reload: 18
@@ -182,7 +184,7 @@ ammoTypes: {
     fragLifeMax: 1.3
     fragBullet: {
       type: LiquidBulletType
-      liquid: vx-3-oxychloride
+      liquid: vx-1-oxychloride
       damage: 5
     }
     ammoMultiplier: 4
