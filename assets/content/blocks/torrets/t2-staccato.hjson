@@ -10,10 +10,11 @@ shootSound: shootDiffuse
 shootSoundVolume: 0.8
 
 range: 260
-reload: 18
+reload: 20
 inaccuracy: 4
-recoil: 3.5
+recoil: 1.5
 shootCone: 15
+ammoUseEffect: casing1
 
 targetAir: true
 targetGround: true
@@ -33,10 +34,11 @@ shoot: {
   shots: 2
   shotDelay: 3
   barrels: 2
+  spread: 8
 }
 
 shootX: 0
-shootY: 8
+shootY: 10
 
 drawer: {
   type: DrawTurret
@@ -45,22 +47,24 @@ drawer: {
     {
       type: RegionPart
       suffix: -barrel-left
+      heatProgress: recoil
       progress: recoil
       recoilIndex: 0
       moveY: -2
-      x: 0.5
-      y: 0.8
+      x: 4
+      y: 3
       mirror: false
       under: false
     },
     {
       type: RegionPart
       suffix: -barrel-right
+      heatProgress: recoil
       progress: recoil
       recoilIndex: 1
       moveY: -2
-      x: -0.5
-      y: 0.8
+      x: -4
+      y: 3
       mirror: false
       under: false
     }
