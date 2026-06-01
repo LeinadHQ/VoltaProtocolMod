@@ -4,213 +4,196 @@ outlineRadius: 1
 envEnabled: [any]
 
 category: turret
-size: 3
-health: 1850
-shootSound: shootDiffuse
-shootSoundVolume: 0.8
+size: 2
+health: 1000
 
-range: 260
-reload: 20
-inaccuracy: 4
-recoil: 1.5
-shootCone: 15
-ammoUseEffect: casing1
+range: 210
+reload: 25
+inaccuracy: 3
+recoil: 2.5
+shootCone: 20
 
 targetAir: true
-targetGround: true
-rotateSpeed: 6.5
+targetGround: false
+rotateSpeed: 8
 
 hasLiquids: true
-liquidCapacity: 40
+liquidCapacity: 30
 
 consumes: {
   coolant: {
-    amount: 0.2
+    amount: 0.1
   } 
+}
+
+drawer: {
+  type: DrawTurret
+  parts: [
+    {
+      type: RegionPart
+      suffix: -barrel-left
+      progress: recoil
+      recoilIndex: 0
+      moveY: -1
+      x: 0.3
+      y: 0.75
+      mirror: false
+      under: false
+    },
+
+    {
+      type: RegionPart
+      suffix: -barrel-right
+      progress: recoil
+      recoilIndex: 1
+      moveY: -1
+      x: -0.3
+      y: 0.75
+      mirror: false
+      under: false
+    }
+  ]
+}
+
+requirements: [
+lead/250
+graphite/150
+titanium/200
+],
+"category": "turret",
+	"research": {
+		"researchCostMultiplier": 0.3,
+		"parent": "t1-tipe-1",
+		"objectives": [ "titanium" ]
+  "requirements": [
+		"lead/2000",
+		"graphite/1500",
+    "titanium/1500"
+  ]
 }
 
 shoot: {
   type: ShootAlternate
   shots: 2
-  shotDelay: 3
+  shotDelay: 4
   barrels: 2
-  spread: 8
 }
 
 shootX: 0
-shootY: 10
-
-drawer: {
-  type: DrawTurret
-  heat: -heat
-  parts: [
-    {
-      type: RegionPart
-      suffix: -barrel-left
-      heatProgress: recoil
-      progress: recoil
-      recoilIndex: 0
-      moveY: -2
-      x: 4
-      y: 3
-      mirror: false
-      under: false
-    },
-    {
-      type: RegionPart
-      suffix: -barrel-right
-      heatProgress: recoil
-      progress: recoil
-      recoilIndex: 1
-      moveY: -2
-      x: -4
-      y: 3
-      mirror: false
-      under: false
-    }
-  ]
-}
+shootY: 6
 
 ammoTypes: {
-  graphite: {
-    type: BasicBulletType
-    speed: 8
-    damage: 35
-    width: 9
-    height: 14
-    collidesAir: true
-    collidesGround: true
-    buildingDamageMultiplier: 0.3
-    splashDamage: 25
-    splashDamageRadius: 20
-    ammoMultiplier: 3
-  }
 
-  thorium: {
-    type: BasicBulletType
-    speed: 7.5
-    damage: 55
-    width: 11
-    height: 16
-    collidesAir: true
-    collidesGround: true
-    splashDamage: 45
-    splashDamageRadius: 24
-    buildingDamageMultiplier: 0.4
-    ammoMultiplier: 2
-    backColor: C27CFF
-    frontColor: E8CFFF
-  }
+graphite: {
+ type: FlakBulletType
+ speed: 7
+ damage: 28
 
-  vw-3-aegesium: {
-    type: BasicBulletType
-    speed: 9.5
-    damage: 50
-    width: 10
-    height: 18
-    pierce: true
-    pierceCap: 3
-    collidesAir: true
-    collidesGround: true
-    splashDamage: 15
-    splashDamageRadius: 12
-    buildingDamageMultiplier: 0.5
-    frontColor: 9FE8FF
-    backColor: 2D6FA3
-    ammoMultiplier: 2
-  }
+ frontColor: FFD37F
+ backColor: D99A3A
 
-  vw-1-silver: {
-    type: FlakBulletType
-    speed: 9
-    damage: 25
-    collidesGround: true
-    splashDamage: 40
-    splashDamageRadius: 30
-    explodeRange: 25
-    buildingDamageMultiplier: 0.25
-    frontColor: E0E0E0
-    backColor: 9E9E9E
-    fragBullets: 6
-    fragBullet: {
-      type: BasicBulletType
-      damage: 8
-      speed: 3
-      lifetime: 20
-      buildingDamageMultiplier: 0.2
-    }
-    ammoMultiplier: 3
-  }
+ splashDamage: 35
+ splashDamageRadius: 28
+ explodeRange: 22
 
-  vw-2-palladium: {
-    type: BasicBulletType
-    speed: 8.5
-    damage: 40
-    width: 11
-    height: 15
-    collidesAir: true
-    collidesGround: true
-    splashDamage: 32
-    splashDamageRadius: 35
-    buildingDamageMultiplier: 0.4
-    status: melting
-    statusDuration: 120
-    frontColor: ffa64d
-    backColor: d96c00
-    lightning: 2
-    lightningDamage: 10
-    lightningLength: 8
-    ammoMultiplier: 2
-  }
-
-  vw-4-bio-composite: {
-    type: BasicBulletType
-    speed: 7
-    damage: 30
-    width: 12
-    height: 14
-    collidesAir: true
-    collidesGround: true
-    splashDamage: 30
-    splashDamageRadius: 40
-    buildingDamageMultiplier: 0.6
-    status: corroded
-    statusDuration: 180
-    frontColor: C9FF8C
-    backColor: 3E8F5B
-    trailEffect: artilleryTrail
-    fragBullets: 4
-    fragRandomSpread: 45
-    fragVelocityMin: 0.5
-    fragVelocityMax: 1.6
-
-    fragLifeMin: 0.5
-    fragLifeMax: 1.3
-    fragBullet: {
-      type: LiquidBulletType
-      liquid: vx-1-oxychloride
-      damage: 5
-    }
-    ammoMultiplier: 4
-  }
+ ammoMultiplier: 2
 }
 
-requirements: [
-  lead/450
-  graphite/300
-  titanium/350
-  vw-1-silver/80
-  vw-3-aegesium/150
-]
+metaglass: {
+ type: FlakBulletType
+ speed: 6
+ damage: 20
 
-research: {
-  researchCostMultiplier: 0.5
-  parent: "t2-doppio" 
-  objectives: [ "vw-3-aegesium" ]
-  requirements: [
-    "lead/4000"
-    "graphite/3000"
-    "titanium/2500"
-    "vw-3-aegesium/1000"
-  ]
+ trailWidth: 2
+ trailLength: 8
+ trailColor: 7BFF7B
+
+ splashDamage: 30
+ splashDamageRadius: 25
+ explodeRange: 22
+
+ fragBullets: 4
+ fragSpread: 25
+ fragRandomSpread: 15
+ 
+ fragVelocityMin: 0.6
+ fragVelocityMax: 1.3
+
+ fragLifeMin: 0.5
+ fragLifeMax: 1.3
+
+ fragBullet: {
+  type: BasicBulletType
+  speed: 4
+  damage: 8
+ }
+}
+
+blast-compound: {
+ type: FlakBulletType
+ speed: 4
+ damage: 25
+
+  trailEffect: shootSmallSmoke
+
+ splashDamage: 42
+ splashDamageRadius: 32
+ explodeRange: 26
+
+ frontColor: FF795E
+ backColor: C44E36
+
+ trailWidth: 3
+ trailLength: 14
+ trailColor: FF5A3A
+
+ fragBullets: 5
+ fragSpread: 20
+ fragRandomSpread: 10
+ 
+ fragVelocityMin: 0.5
+ fragVelocityMax: 1.6
+
+ fragLifeMin: 0.8
+ fragLifeMax: 1.5
+
+ fragBullet: {
+  type: BasicBulletType
+  speed: 4
+  damage: 10
+
+  ammoMultiplier: 1
+ }
+}
+
+thorium: {
+ type: FlakBulletType
+ speed: 7
+ damage: 35
+
+  trailWidth: 2
+ trailLength: 12
+ trailColor: C27CFF
+
+ splashDamage: 45
+ splashDamageRadius: 32
+ explodeRange: 28
+
+ ammoMultiplier: 2
+}
+silicon: {
+ type: FlakBulletType
+ speed: 7
+ damage: 18
+
+  trailWidth: 2
+ trailLength: 10
+ trailColor: 6ECDEC
+
+ homingPower: 0.12
+ homingRange: 80
+ explodeRange: 20
+
+  ammoMultiplier: 2
+}
 }
