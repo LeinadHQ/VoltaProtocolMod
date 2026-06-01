@@ -83,14 +83,14 @@ public class VPBlocks {
             requirements(Category.defense, ItemStack.with(VPItems.palladium, 24));
         }};
         
-        regenerativeWall = new RegenerativeWall("a4-regenerative-wall", 1, 950, 2f, 10f){{
+        regenerativeWall = new RegenerativeWall("a4-regenerative-wall", 1, 950, 3f, 2f, 10f){{
             localizedName = "Muro Bio-Regenerativo";
             category = Category.defense;
             buildVisibility = BuildVisibility.shown;
             requirements(Category.defense, ItemStack.with(VPItems.bioComposite, 6, VPItems.palladium, 1));
         }};
 
-        regenerativeWallLarge = new RegenerativeWall("a5-regenerative-wall-large", 2, 3800, 4f, 25f){{
+        regenerativeWallLarge = new RegenerativeWall("a5-regenerative-wall-large", 2, 3800, 4f, 4f, 25f){{
             localizedName = "Gran Muro Bio-Regenerativo";
             category = Category.defense;
             buildVisibility = BuildVisibility.shown;
