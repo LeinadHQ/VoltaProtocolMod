@@ -11,6 +11,7 @@ public class VPTechTree {
         Log.info("[Volta Protocol] Acoplando mapa del árbol tecnológico sin referencias nulas...");
 
         Block rootBlock = VPBlocks.vpTemporalTT;
+        
         VPBlocks.silverWall.researchCost = ItemStack.with(VPItems.silver, 150);
         VPBlocks.silverWallLarge.researchCost = ItemStack.with(VPItems.silver, 350);
         VPBlocks.palladiumWall.researchCost = ItemStack.with(VPItems.palladium, 200);
@@ -32,9 +33,24 @@ public class VPTechTree {
                                 if (VPItems.bioComposite != null) TechTree.nodeProduce(VPItems.bioComposite, () -> {});
                             });
                         }
+
+                        if (VPLiquids.oxychloride != null) {
+                            TechTree.node(VPLiquids.oxychloride, () -> {
+                                
+                                if (VPLiquids.bioPlasma != null) {
+                                    TechTree.node(VPLiquids.bioPlasma, () -> {
+                                        
+                                        if (VPLiquids.fluxPhase != null) {
+                                            TechTree.node(VPLiquids.fluxPhase);
+                                        }
+                                    });
+                                }
+                            });
+                        }
                     });
                 }
 
+                // Muros (defensa)
                 TechTree.node(VPBlocks.silverWall, () -> {
                     TechTree.node(VPBlocks.silverWallLarge);
 
