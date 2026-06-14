@@ -1,12 +1,12 @@
 package voltaprotocol.content;
 
 import arc.graphics.Color;
+import mindustry.content.Blocks;
 import mindustry.content.Planets;
+import mindustry.content.TechTree;
 import mindustry.graphics.g3d.*;
 import mindustry.type.Planet;
 import voltaprotocol.expand.maps.VoltaPlanetGenerator;
-import mindustry.content.Blocks;
-import mindustry.game.TechTree;
 
 public class VPPlanets {
     public static Planet Volta;
