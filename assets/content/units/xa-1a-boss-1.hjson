@@ -1,0 +1,74 @@
+type: tank
+name: Radiolysis Corrompido
+description: "Un titán de la antigua línea de defensa de Volta. Subyugado por el miasma, su IA original aún lucha desesperadamente por el control, ralentizando sus motores y saboteando la potencia de sus armas pesadas."
+
+health: 22000
+armor: 12
+speed: 0.22
+hitSize: 34
+outlineRadius: 3 # Mantenlo para que encaje estéticamente con el sombreado de unidades
+
+immunities: [
+  electrified,
+  burning,
+  blasted
+]
+
+weapons: [
+  {
+    name: radiolysis-main-turret-corrupted
+    x: 0
+    y: -4
+    mirror: false
+    rotate: true
+    top: true
+    rotateSpeed: 1.0
+    reload: 320
+    cooldownTime: 200
+    shootSound: shootEclipse
+    
+    shoot: {
+      type: ShootAlternate
+      shots: 2
+      spread: 4
+    }
+
+    chargeEffect: {
+      type: ParticleEffect
+      particles: 10
+      lifetime: 40
+      colorFrom: ffa3c4
+      colorTo: d75c90
+    }
+
+    bullet: {
+      type: laser
+      damage: 180
+      length: 200
+      width: 14
+      colors: [d75c90, ffa3c4, ffffff] # Combinación excelente para denotar la corrupción del miasma
+      status: volta-protocol-w0-a-fission
+      statusDuration: 300
+    }
+  },
+  {
+    name: radiolysis-missile-bay-damaged
+    x: 14
+    y: 0
+    mirror: true # Para que mantenga las bahías de misiles en ambos costados del tanque
+    rotate: true
+    reload: 70
+    shootSound: shootMissile
+    
+    bullet: {
+      type: MissileBulletType
+      speed: 3
+      damage: 35
+      homingPower: 0.05 
+      homingRange: 60
+      # Tip extra: Mantén un rastro visual modificado para que se note el fallo informático/orgánico
+      frontColor: ffa3c4
+      backColor: d75c90
+    }
+  }
+]
