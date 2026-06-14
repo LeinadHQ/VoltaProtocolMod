@@ -32,6 +32,7 @@ public class VPPlanets {
             lightColor = Color.valueOf("c19393"); 
 
             startSector = 0; 
+            techTree = TechTree.all.find(t -> t.content == Blocks.coreShard);
         }};
     }
 }
