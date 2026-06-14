@@ -5,10 +5,14 @@ If you have any suggestions, bug reports, or feedback, feel free to open an issu
 
 V0.4 beta: 
 Technical changes:
+
 -Technology tree: It was moved back to the Serpulo tree due to technical issues with the new planet.
+
 -Code: Some elements (such as walls, the mod’s central node, and objects) have been moved to Java to improve organization, fix some bugs, and test the functionality of the Java code.
+
 Visual changes:
 -Some sprites have been modified (there are still sprites to be finished and designed).
+
 -New content:
  - A new planet, “Volta” with one sector has been added (it took some time, but I finally got it working, though it still needs improvement)
  - New drills: 4 drills (2 normal and 2 beam drills) were created to complement Volta’s design.
