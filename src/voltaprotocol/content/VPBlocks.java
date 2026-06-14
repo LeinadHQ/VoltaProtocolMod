@@ -90,6 +90,7 @@ public class VPBlocks {
 
         darkAndesiteWall = new StaticWall("env-dark-andesite-wall"){{
             localizedName = "Muro de Andesita Oscura";
+            attributes.set(Attribute.water, 0.2f);
             variants = 2;
         }};
 
@@ -98,6 +99,7 @@ public class VPBlocks {
             variants = 3;
             speedMultiplier = 0.8f;
             attributes.set(Attribute.heat, 0.5f); 
+            attributes.set(Attribute.water, 0f);
             emitLight = true;
             lightRadius = 40f;
             lightColor = arc.graphics.Color.valueOf("e05316").a(0.2f);
@@ -109,6 +111,7 @@ public class VPBlocks {
             variants = 3;
             speedMultiplier = 0.5f;
             attributes.set(Attribute.heat, 1.0f); 
+            attributes.set(Attribute.water, 0f);
             emitLight = true;
             lightRadius = 65f;
             lightColor = arc.graphics.Color.valueOf("ff4500").a(0.4f);
