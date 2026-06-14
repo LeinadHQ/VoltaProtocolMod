@@ -1,0 +1,43 @@
+type: Drill
+
+size: 3
+tier: 6
+drillTime: 105
+health: 480
+rotateSpeed: 4
+warmupSpeed: 0.005
+liquidBoostIntensity: 1.8
+
+hardnessDrillMultiplier: 1.5 
+
+consumes: {
+  power: 1.5
+  liquid: {
+    liquid: vx-1-oxychloride
+    amount: 0.25
+    optional: false
+    booster: false
+  }
+}
+
+requirements: [
+  silicon/120
+  graphite/100
+  vw-1-silver/80
+  vw-2-palladium/50
+  surge-alloy/50
+  vw-4-bio-composite/20
+]
+category: production
+
+research: {
+parent: d0-a-silver-drill
+requirements: [
+  silicon/4500
+  vw-1-silver/5000
+  graphite/4700
+  vw-2-palladium/5100
+  surge-alloy/1500
+  vw-4-bio-composite/500
+  ]
+}

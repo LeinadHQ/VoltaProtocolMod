@@ -1,0 +1,38 @@
+type: BeamDrill
+
+tier: 3
+drillTime: 115
+size: 2
+range: 6
+hasPower: true
+itemCapacity: 20
+
+consumes: {
+  power: 0.3
+  liquid: {
+    liquid: vx-1-oxychloride
+    amount: 0.001
+    booster: true
+    optional: true
+    liquidBoostIntensity: 1.8
+  }
+}
+
+requirements: [
+  graphite/45
+  silicon/30
+  vw-1-silver/65
+  copper/80
+]
+
+category: production
+
+research: {
+  parent: d0-silver-drill
+  requirements: [
+    graphite/300
+    silicon/500
+    vw-1-silver/450
+    copper/800
+  ]
+}

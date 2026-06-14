@@ -1,0 +1,41 @@
+type: BeamDrill
+
+tier: 5
+drillTime: 70
+size: 3
+range: 8
+hasPower: true
+itemCapacity: 20
+
+consumes: {
+  power: 1.3
+  liquid: {
+    liquid: vx-2-bio-plasma
+    amount: 0.04
+    booster: true
+    optional: true
+  }
+}
+
+category: production
+requirements: [
+  graphite/75
+  beryllium/155
+  tungsten/170
+  vw-1-silver/80
+  vw-2-palladium/100
+  vw-4-bio-composite/25
+]
+
+research: {
+  parent: d1-a-silver-arc-drill
+  requirements: [
+    graphite/1500
+    silicon/2000
+    vw-1-silver/3000
+    vw-2-palladium/1800
+    beryllium/1750
+    tungsten/2000
+    vw-4-bio-composite/600
+  ]
+}
