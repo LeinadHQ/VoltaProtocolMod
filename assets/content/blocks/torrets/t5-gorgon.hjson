@@ -83,6 +83,7 @@ ammoTypes: {
     lightningDamage: 15
     lightningColor: 84f5f5
     ammoMultiplier: 2
+    buildingDamageMultiplier: 0.3
   }
 
   vw-2-palladium: {
@@ -105,6 +106,7 @@ ammoTypes: {
     hitEffect: explosion
     status: melting
     statusDuration: 120
+    buildingDamageMultiplier: 0.4
   }
 
   titanium: {
@@ -129,6 +131,7 @@ ammoTypes: {
     statusDuration: 120
     splashDamage: 60
     splashDamageRadius: 40
+    buildingDamageMultiplier: 0.3
   }
 
   silicon: {
@@ -149,5 +152,40 @@ ammoTypes: {
     hitEffect: hitLancer
     despawnEffect: flakExplosion
     reloadMultiplier: 1.4
+    buildingDamageMultiplier: 0.2
+  }
+  tungsten: {
+    type: BasicBulletType
+    speed: 12
+    damage: 150
+    width: 14
+    height: 26
+    sprite: bullet
+    pierce: true
+    pierceCap: 3
+    buildingDamageMultiplier: 0.4
+    ammoMultiplier: 1
+    
+    frontColor: d1dce6
+    backColor: 768a96
+    trailColor: d1dce6
+    trailWidth: 4.5
+    trailLength: 18
+    
+    shootEffect: shootBig2
+    smokeEffect: shootBigSmoke2
+    hitEffect: hitBulletColor
+    despawnEffect: hitBulletColor
+    
+    fragBullets: 3
+    fragBullet: {
+      type: BasicBulletType
+      speed: 4
+      damage: 25
+      width: 6
+      height: 8
+      frontColor: d1dce6
+      backColor: 768a96
+    }
   }
 }
