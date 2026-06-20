@@ -8,7 +8,6 @@ public class VPLiquids {
 
     public static void load() {
         oxychloride = new Liquid("vx-1-oxychloride", Color.valueOf("84f5f5")){{
-            localizedName = "Oxicloruro";
             gas = true;
             flammability = 0.1f;
             explosiveness = 0.4f;
@@ -17,7 +16,6 @@ public class VPLiquids {
         }};
 
         bioPlasma = new Liquid("vx-2-bio-plasma", Color.valueOf("c5e5ff")){{
-            localizedName = "Bio-Plasma";
             lightColor = Color.valueOf("84f5f533");
             heatCapacity = 1.2f;
             viscosity = 0.6f;
@@ -26,7 +24,6 @@ public class VPLiquids {
         }};
 
         fluxPhase = new Liquid("vx-3-flux-phase", Color.valueOf("f48eac")){{
-            localizedName = "Fase de Flujo";
             lightColor = Color.valueOf("ffa3c4");
             viscosity = 0.6f;
             temperature = 0.3f;
