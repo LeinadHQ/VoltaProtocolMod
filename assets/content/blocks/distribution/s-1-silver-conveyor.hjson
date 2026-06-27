@@ -15,7 +15,7 @@ research: {
   parent: vp-temporal-tt
   objectives: [ vw-1-silver ]
   requirements: [
-    vw-1-silver/230
-    lead/350
+    vw-1-silver/100
+    lead/120
   ]
 }
