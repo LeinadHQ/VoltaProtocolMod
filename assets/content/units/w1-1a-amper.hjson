@@ -1,0 +1,68 @@
+type: tank
+name: Amper
+description: "Cazacarros ligero experimental diseñado alrededor de un cañón magnético de riel. Dispara ráfagas dobles hiper-veloces de alta penetración. Se inmoviliza al canalizar energía para disparar y tiene un giro de chasis agónicamente lento."
+
+hitSize: 12
+health: 650
+armor: 6
+
+speed: 0.55
+rotateSpeed: 0.8
+
+treadRects: [
+  {
+    x: -7
+    y: -10
+    width: 3
+    height: 20
+  }
+  {
+    x: 4
+    y: -10
+    width: 3
+    height: 20
+  }
+]
+
+weapons: [
+  {
+    name: amper-cannon
+    rotate: false
+    mirror: false
+    
+    x: 0
+    y: 4
+    
+    reload: 150
+    
+    shoot: {
+      shots: 2
+      shotDelay: 10
+    }
+    
+    shootStatus: unmoving
+    shootStatusDuration: 50
+    
+    bullet: {
+      type: BasicBulletType
+      damage: 85
+      length: 180
+      
+      pierce: true
+      pierceCap: 2
+      
+      colors: [ "e1897a", "ffffff" ]
+      
+      hitEffect: hitBulletBig
+      smokeEffect: shootBigSmoke2
+    }
+  }
+]
+
+research: {
+  parent: vp1-argent-assembler
+  requirements: [
+    vw-1-silver/120
+    vw-2-palladium/80
+  ]
+}
