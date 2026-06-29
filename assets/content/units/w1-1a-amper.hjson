@@ -1,6 +1,5 @@
 type: tank
 name: Amper
-description: "Cazacarros ligero experimental diseñado alrededor de un cañón magnético de riel. Dispara ráfagas dobles hiper-veloces de alta penetración. Se inmoviliza al canalizar energía para disparar y tiene un giro de chasis agónicamente lento."
 
 hitSize: 12
 health: 650
