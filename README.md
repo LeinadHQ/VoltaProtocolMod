@@ -20,6 +20,8 @@ If you have any suggestions, bug reports, or feedback, feel free to open an issu
 - New sprites for some blocks
 - New design for the planet (The front brightness issue has finally been fixed)
 - New ring for the planet
+  
+![picture](github-pictures/planetprogress.png)
 
 ### New content:
 - **A new planet:** “Volta” with one sector has been added (The first sector finally works properly).
