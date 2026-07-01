@@ -1,9 +1,9 @@
 The mod is still in development, but its goal is to add content that complements the base version of Mindustry with new materials and structures, based on Serpulo’s resources.
 For now, there’s only content for Serpulo and the new planet Volta. Since I haven’t figured out how to enable erekir technology on Volta, I decided to create new blocks that follow its mechanics and resources.
 
-### 🌐 Supported Languages / Idiomas disponibles
-- EN **English** (Full translation)
-- ES **Español** (Traducción completa)
+### 🌐 Languages / Idiomas
+- EN **English** (might be some errors)
+- ES **Español** 
 
 ---
 
