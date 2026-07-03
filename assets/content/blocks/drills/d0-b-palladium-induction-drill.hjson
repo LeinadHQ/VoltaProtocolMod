@@ -14,7 +14,7 @@ consumes: {
   power: 6.1
   liquid: {
     liquid: vx-1-oxychloride
-    amount: 0.75
+    amount: 0.25
     optional: false
     booster: false
   }
