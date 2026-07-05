@@ -41,17 +41,36 @@ outputItem: vw-3-aegesium/2
 drawer: {
   type: DrawMulti
   drawers: [
-    { 
-    type: DrawDefault 
+    {
+      type: DrawRegion
+      suffix: "-bottom"
     }
-    { 
-    type: DrawGlowRegion 
-    suffix: -glow 
-    color: 84f5f5 
+    {
+      type: DrawMultiWeave
+      glowColor: 84f5f5
     }
-    { 
-    type: DrawRegion 
-    suffix: -top 
+    {
+      type: DrawPulseShape
+      square: false
+      color: 84f5f5
+    }
+    {
+      type: DrawDefault
+    }
+    {
+      type: DrawRegion
+      suffix: "-weave"
+      rotateSpeed: 1
+    }
+    {
+      type: DrawGlowRegion
+      suffix: "-weave-glow"
+      rotateSpeed: 1
+      color: 84f5f5
+    }
+    {
+      type: DrawRegion
+      suffix: "-top"
     }
   ]
 }
