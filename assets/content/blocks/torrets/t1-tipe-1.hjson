@@ -13,6 +13,7 @@ recoil: 1.5
 
 hasLiquids: true
 liquidCapacity: 25
+coolantMultiplier: 5
 
 consumes: {
   coolant: {
@@ -111,7 +112,7 @@ scrap: {
     width: 7
     height: 10
     ammoMultiplier: 2
-    reloadMultiplier: 1.1
+    reloadMultiplier: 1.25
     frontColor: b0e6a1
     backColor: 579a4b
     buildingDamageMultiplier: 0.3
