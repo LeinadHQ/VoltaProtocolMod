@@ -19,6 +19,7 @@ rotateSpeed: 8
 
 hasLiquids: true
 liquidCapacity: 30
+coolantMultiplier: 5
 
 consumes: {
   coolant: {
@@ -191,6 +192,7 @@ silicon: {
  trailColor: 6ECDEC
 
  homingPower: 0.12
+ reloadMultiplier: 1.35
  homingRange: 80
  explodeRange: 20
 
