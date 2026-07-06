@@ -1,0 +1,34 @@
+type: MendProjector
+name: Repair Beacon
+
+health: 250
+size: 2
+
+healPercent: 0.12
+reload: 175
+range: 80
+
+consumes: {
+  power: 0.30
+}
+
+requirements: [
+  lead/90
+  silicon/50
+  vw-1-silver/38
+  vw-2-palladium/12
+]
+
+research: {
+  parent: vz-1a-assembler-relay
+  requirements: [
+    lead/1500
+    vw-2-palladium/800
+    silicon/1250
+    vw-1-silver/1200
+  ]
+}
+
+category: effect
+
+squareSprite: false

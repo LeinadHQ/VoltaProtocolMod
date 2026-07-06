@@ -1,0 +1,34 @@
+type: BuildTurret
+name: Assembler Relay
+
+category: effect
+
+health: 100
+size: 2
+buildSpeed: 0.3
+range: 120
+outlineRadius: 2
+
+consumes: {
+  power: 0.15
+}
+
+squareSprite: false
+glowIntensity: 0.5
+
+requirements: [
+  lead/25
+  silicon/40
+  copper/20
+  vw-1-silver/25
+]
+
+research: {
+  parent: a0-silver-wall
+  requirements: [
+    lead/500
+    copper/450
+    silicon/350
+    vw-1-silver/400
+  ]
+}
