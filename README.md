@@ -11,7 +11,7 @@ If you have any suggestions, bug reports, or feedback, feel free to open an issu
 
 ## V0.5 beta: 
 ### Technical changes:
-- **Technology tree:** It was moved back to the Serpulo tree due to technical issues with the new planet.
+- **Tech tree:** It was moved back to the Serpulo tree due to technical issues with the new planet.
 - **Code:** Some elements (such as walls, the mod’s central node, and objects) have been moved to Java to improve organization, fix some bugs, and test the functionality of the Java code.
 - **Planet: New Ring:** New ring generation for the planet (the New Horizons Dyson Sphere/Ring generator was used as a reference)
 - **Sector:** Planet sector generation finally works, but it needs quite a few improvements.
