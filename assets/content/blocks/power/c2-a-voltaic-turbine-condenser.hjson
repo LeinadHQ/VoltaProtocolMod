@@ -1,0 +1,63 @@
+type: ThermalGenerator
+
+size: 3
+health: 460
+
+attribute: steam
+group: liquids
+
+displayEfficiencyScale: 0.111
+minEfficiency: 8.9999
+displayEfficiency: false
+
+powerProduction: 0.4
+
+hasLiquids: true
+liquidCapacity: 20
+outputLiquid: water/0.01852
+
+generateEffect: {
+  type: ParticleEffect
+  particles: 6
+  length: 14
+  lifetime: 25
+  colorFrom: c9e8ff
+  colorTo: ffffff
+  sizeFrom: 2.5
+  sizeTo: 0
+}
+effectChance: 0.04
+
+fogRadius: 3
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    { 
+    type: DrawDefault 
+    }
+    {
+      type: DrawRegion
+      suffix: -rotator
+      rotateSpeed: 15
+    }
+  ]
+}
+
+ambientSound: loopHum
+ambientSoundVolume: 0.06
+
+category: power
+
+requirements: [
+  beryllium/60
+  vw-1-silver/40
+]
+
+research: {
+  parent: c1-a-slag-turbine
+  requirements: [
+    beryllium/900
+    vw-1-silver/700
+  ]
+}
