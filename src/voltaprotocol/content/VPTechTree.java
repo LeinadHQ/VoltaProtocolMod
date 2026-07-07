@@ -8,7 +8,7 @@ import mindustry.type.ItemStack;
 public class VPTechTree {
 
     public static void load() {
-        Log.info("[Volta Protocol] Acoplando ramas de investigación al árbol global...");
+        Log.info("[Volta Protocol] Acoplando ramas de investigacion al arbol global...");
     
         VPBlocks.silverWall.researchCost = ItemStack.with(VPItems.silver, 150);
         VPBlocks.silverWallLarge.researchCost = ItemStack.with(VPItems.silver, 350);
@@ -19,7 +19,7 @@ public class VPTechTree {
 
         addToVanillaTree(Blocks.coreShard);
 
-        Log.info("[Volta Protocol] ¡Árbol de Volta sincronizado multidimensionalmente!");
+        Log.info("[Volta Protocol] ¡Arbol de Volta sincronizado!");
     }
 
     private static void addToVanillaTree(mindustry.world.Block coreRoot) {
