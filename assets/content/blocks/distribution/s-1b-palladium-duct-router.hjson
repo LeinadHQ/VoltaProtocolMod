@@ -1,0 +1,24 @@
+type: DuctRouter
+
+health: 90
+size: 1
+speed: 4
+solid: false
+
+regionRotated1: 1
+
+requirements: [
+  vw-2-palladium/10
+  vw-1-silver/2
+]
+
+category: distribution
+
+research: {
+  parent: s-1a-palladium-duct
+  objectives: [ vw-2-palladium ]
+  requirements: [
+    vw-2-palladium/300
+    vw-1-silver/400
+  ]
+}

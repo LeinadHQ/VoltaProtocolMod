@@ -1,0 +1,26 @@
+type: DuctBridge
+
+health: 90
+size: 1
+speed: 4
+range: 6
+
+crushFragile: true
+buildCostMultiplier: 2
+researchCostMultiplier: 0.3
+
+requirements: [
+  vw-2-palladium/15
+  vw-1-silver/5
+]
+
+category: distribution
+
+research: {
+  parent: s-1b-palladium-duct-router
+  objectives: [ vw-2-palladium ]
+  requirements: [
+    vw-2-palladium/180
+    vw-1-silver/200
+  ]
+}

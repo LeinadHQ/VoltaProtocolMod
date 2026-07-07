@@ -1,0 +1,23 @@
+type: DuctJunction
+
+health: 90
+size: 1
+speed: 4
+
+solid: false
+
+requirements: [
+  vw-2-palladium/8
+  vw-1-silver/2
+]
+
+category: distribution
+
+research: {
+  parent: s-1c-palladium-duct-bridge
+  objectives: [ vw-2-palladium ]
+  requirements: [
+    vw-2-palladium/120
+    vw-1-silver/120
+  ]
+}
