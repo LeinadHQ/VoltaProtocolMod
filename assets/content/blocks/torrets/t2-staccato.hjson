@@ -243,11 +243,11 @@ ammoTypes: {
 }
 
 requirements: [
-  lead/450
-  graphite/300
-  titanium/350
+  lead/310
+  graphite/230
+  titanium/250
   vw-1-silver/80
-  vw-3-aegesium/150
+  vw-3-aegesium/130
 ]
 
 research: {
