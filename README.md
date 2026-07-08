@@ -37,3 +37,8 @@ Volta protocol has been tested with the following mods:
 - Simple additions
 
 *More mods will be tested and added to this list over time. If you play with other mods and find they work well together, feel free to share your feedback!*
+
+### Credits/creditos
+Thank you so much for helping breathe more life into Volta Protocol!
+*Muchas gracias por ayudar a darle mas vida a Volta Protocol!*
+* **[Caboosket](https://github.com/Caboosket)**: Sprite improvement (Palladium and palladium duct family re-design)
