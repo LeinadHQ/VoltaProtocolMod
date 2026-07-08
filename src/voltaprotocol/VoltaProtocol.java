@@ -19,9 +19,9 @@ public class VoltaProtocol extends Mod {
 
         VPItems.load();
         VPLiquids.load();
+        VPUnits.load();
         VPBlocks.load();
         VPPlanets.load();
-        VPUnits.load();
         VPSectors.load();
         VPTechTree.load();
 
