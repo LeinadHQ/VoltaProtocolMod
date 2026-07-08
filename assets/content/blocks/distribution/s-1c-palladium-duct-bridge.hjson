@@ -20,7 +20,7 @@ research: {
   parent: s-1b-palladium-duct-router
   objectives: [ vw-2-palladium ]
   requirements: [
-    vw-2-palladium/180
-    vw-1-silver/200
+    vw-2-palladium/130
+    vw-1-silver/100
   ]
 }
