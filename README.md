@@ -32,7 +32,6 @@ If you have any suggestions, bug reports, or feedback, feel free to open an issu
 Volta protocol has been tested with the following mods:
 - Gier: Revitalized
 - Warbound Industries
-- Better Vanilla
 - Mindustry Tool
 - Simple additions
 
