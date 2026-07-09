@@ -7,8 +7,9 @@ hasPower: true
 hasItems: true
 hasLiquids: true
 liquidCapacity: 60
+itemCapacity: 20
 
-craftTime: 68
+craftTime: 70
 envEnabled: [any]
 category: crafting
 
