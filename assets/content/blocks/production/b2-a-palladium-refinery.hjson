@@ -4,6 +4,7 @@ size: 3
 health: 400
 hasPower: true
 hasItems: true
+itemCapacity: 20
 craftTime: 80
 envEnabled: [any]
 category: crafting
