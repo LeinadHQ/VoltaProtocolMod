@@ -2,12 +2,13 @@ type: GenericCrafter
 
 size: 2
 health: 320 
-craftTime: 90
+craftTime: 120
 envEnabled: [any]
 
 hasLiquids: true
 liquidCapacity: 30
 hasItems: true
+itemCapacity: 15
 
 ambientSound: loopSpray
 ambientSoundVolume: 0.04
@@ -32,19 +33,19 @@ research: {
 
 consumes: {
   items: [
-    copper/3
+    copper/5
   ]
   liquid: {
     liquid: water
-    amount: 0.15
+    amount: 0.25
   }
-  power: 0.5
+  power: 0.8
 }
 
 outputItems: [
   {
     item: vw-1-silver
-    amount: 1
+    amount: 2
   }
   {
     item: scrap
@@ -64,6 +65,12 @@ drawer: {
       padding: 2.5
     }
     {
+      type: DrawBubbles
+      color: dfe9f5
+      amount: 8
+      spread: 3.5
+    }
+    {
       type: DrawRegion
       suffix: -helice
       spinSprite: true
@@ -72,12 +79,6 @@ drawer: {
     {
       type: DrawRegion
       suffix: -top
-    }
-    {
-      type: DrawBubbles
-      color: dfe9f5
-      amount: 10
-      spread: 4
     }
   ]
 }
