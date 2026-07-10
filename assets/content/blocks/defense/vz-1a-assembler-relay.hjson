@@ -4,12 +4,12 @@ category: effect
 
 health: 100
 size: 2
-buildSpeed: 0.3
+buildSpeed: 0.6
 range: 120
 outlineRadius: 2
 
 consumes: {
-  power: 0.15
+  power: 0.4
 }
 
 squareSprite: false
