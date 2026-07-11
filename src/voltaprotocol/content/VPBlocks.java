@@ -25,6 +25,10 @@ public class VPBlocks {
     public static Floor darkAndesite;
     //fosas
     public static Floor oxychlorideFloor;
+    public static Floor oxychlorideShoalFloor;
+    public static Floor oxychlorideDeepFloor;
+    public static Floor oxychloridedandesiteShoalFloor;
+    public static Floor oxychlorideFloorSand;
     //Muros relieve
     public static StaticWall argentAndesiteWall;
     public static StaticWall conductiveSandWall;
@@ -73,7 +77,7 @@ public class VPBlocks {
         }};
 
         oxychlorideFloor = new Floor("env-oxychloride-floor"){{
-            localizedName = "Oxicloruro superficial";
+            localizedName = "Oxicloruro superficial (andesita oscura)";
             isLiquid = true;
             liquidDrop = VPLiquids.oxychloride;
             liquidMultiplier = 1.5f;
@@ -82,8 +86,68 @@ public class VPBlocks {
             status = StatusEffects.corroded;
             statusDuration = 90f;
             cacheLayer = CacheLayer.water; 
-            blendGroup = mindustry.content.Blocks.water;
+            blendGroup = this;
             oreDefault = false;
+            albedo = 0.9f;
+        }};
+
+        oxychlorideShoalFloor = new Floor("env-oxychloride-shoal"){{
+            localizedName = "Orilla de Oxicloruro (arena conductora)";
+            isLiquid = true;
+            liquidDrop = VPLiquids.oxychloride;
+            liquidMultiplier = 1.0f;
+            variants = 0;
+            speedMultiplier = 0.9f;
+            status = StatusEffects.corroded;
+            statusDuration = 45f;
+            cacheLayer = CacheLayer.water; 
+            blendGroup = oxychlorideFloor;
+            albedo = 0.9f;
+        }};
+
+        oxychlorideFloorSand = new Floor("env-oxychloride-floor-sand"){{
+            localizedName = "Oxicloruro superficial (arena conductora)";
+            isLiquid = true;
+            liquidDrop = VPLiquids.oxychloride;
+            liquidMultiplier = 1.5f;
+            variants = 0;
+            speedMultiplier = 0.75f;
+            status = StatusEffects.corroded;
+            statusDuration = 90f;
+            cacheLayer = CacheLayer.water; 
+            blendGroup = oxychlorideFloor;
+            oreDefault = false;
+            albedo = 0.9f;
+        }};
+
+        oxychloridedandesiteShoalFloor = new Floor("env-oxychloride-shoal-andesite-dark"){{
+            localizedName = "Orilla de Oxicloruro (andesita oscura)";
+            isLiquid = true;
+            liquidDrop = VPLiquids.oxychloride;
+            liquidMultiplier = 1.0f;
+            variants = 0;
+            speedMultiplier = 0.9f;
+            status = StatusEffects.corroded;
+            statusDuration = 45f;
+            cacheLayer = CacheLayer.water; 
+            blendGroup = oxychlorideFloor;
+            albedo = 0.9f;
+        }};
+
+        oxychlorideDeepFloor = new Floor("env-oxychloride-deep-floor"){{
+            localizedName = "Oxicloruro profundo";
+            isLiquid = true;
+            liquidDrop = VPLiquids.oxychloride;
+            liquidMultiplier = 2.0f;
+            variants = 0;
+            speedMultiplier = 0.25f;
+            drownTime = 120f;
+            status = StatusEffects.corroded;
+            statusDuration = 200f; 
+            cacheLayer = CacheLayer.water;
+            blendGroup = oxychlorideFloor;
+            oreDefault = false;
+            albedo = 0.9f;
         }};
 
         argentAndesiteWall = new StaticWall("env-argent-andesite-wall"){{
