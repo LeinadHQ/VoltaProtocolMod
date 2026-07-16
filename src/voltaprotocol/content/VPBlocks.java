@@ -333,7 +333,7 @@ public class VPBlocks {
                 
         // Modulos
         moduleBasic = new ModularModuleV2("mm-1a-module-basic") {{
-            requirements(Category.effect, with(VPItems.silver, 40));
+            requirements(Category.effect, with(VPItems.silver, 250));
             
             protocol = ModuleProtocol.STORAGE;
             canOverflow = true;
@@ -347,7 +347,7 @@ public class VPBlocks {
         }};
                 
         moduleGreen = new ModularModuleV2("mm-1d-module-green") {{
-            requirements(Category.effect, with(VPItems.bioComposite, 80, VPItems.silver, 30));
+            requirements(Category.effect, with(VPItems.bioComposite, 250, VPItems.silver, 150));
             
             protocol = ModuleProtocol.HEALING;
             
@@ -367,7 +367,7 @@ public class VPBlocks {
         }};
                 
         moduleRed = new ModularModuleV2("mm-1c-module-red") {{
-            requirements(Category.effect, with(VPItems.palladium, 80, VPItems.silver, 20));
+            requirements(Category.effect, with(VPItems.palladium, 250, VPItems.silver, 180));
             
             protocol = ModuleProtocol.ASSAULT;
             
@@ -410,7 +410,7 @@ public class VPBlocks {
         }};
                 
         moduleBlue = new ModularModuleV2("mm-1e-module-blue") {{
-            requirements(Category.effect, with(VPItems.aegesium, 100, VPItems.palladium, 20));
+            requirements(Category.effect, with(VPItems.aegesium, 200, VPItems.palladium, 200));
             
             protocol = ModuleProtocol.DEFENSE;
             
@@ -424,7 +424,7 @@ public class VPBlocks {
         }};
                 
         moduleOrange = new ModularModuleV2("mm-1f-module-orange") {{
-            requirements(Category.effect, with(VPItems.voltium, 60, VPItems.aegesium, 30));
+            requirements(Category.effect, with(VPItems.voltium, 150, VPItems.aegesium, 200));
             
             protocol = ModuleProtocol.ENERGY;
             
@@ -445,7 +445,7 @@ public class VPBlocks {
         }};
                 
         moduleSilver = new ModularModuleV2("mm-1b-module-silver") {{
-            requirements(Category.effect, with(VPItems.silver, 100, VPItems.palladium, 10));
+            requirements(Category.effect, with(VPItems.silver, 300, VPItems.palladium, 120));
             
             protocol = ModuleProtocol.STORAGE;
             canOverflow = true;
