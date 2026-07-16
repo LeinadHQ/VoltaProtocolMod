@@ -316,10 +316,10 @@ public class VPBlocks {
         // Core-Modular
         voltaCore = new ModularCoreV2("mc-1a-modular-core") {{ 
             requirements(Category.effect, with(
-                VPItems.silver,    500,
-                VPItems.palladium, 200,
-                Items.silicon,     400,
-                Items.thorium,     300
+                VPItems.silver,    2500,
+                VPItems.palladium, 2200,
+                Items.silicon,     2400,
+                Items.thorium,     1500
             ));
             unitType = VPUnits.kernelDrone;
             alwaysUnlocked = true;
