@@ -441,7 +441,7 @@ public class VPBlocks {
             maxActive = 2;
 
             ambientSound = mindustry.gen.Sounds.loopPulse;
-            ambientSoundVolume = 0.01f;
+            ambientSoundVolume = 0.04f;
         }};
                 
         moduleSilver = new ModularModuleV2("mm-1b-module-silver") {{
