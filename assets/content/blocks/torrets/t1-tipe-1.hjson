@@ -29,7 +29,7 @@ requirements: [
 
 	research: {
   researchCostMultiplier: 0.3
-  parent: vp-temporal-tt
+  parent: mc-1a-modular-core
   objectives: [ graphite ]
   requirements: [
     copper/1000
