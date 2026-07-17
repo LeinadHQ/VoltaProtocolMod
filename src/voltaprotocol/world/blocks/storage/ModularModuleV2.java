@@ -152,28 +152,42 @@ public class ModularModuleV2 extends StorageBlock {
 
         @Override
         public void onProximityUpdate() {
+            ModularCoreBuildV2 prevModular = modularCore;
+            boolean prevSlot = activeSlot;
+
             super.onProximityUpdate();
 
-            ModularCoreBuildV2 prev = modularCore;
             modularCore = null;
-            activeSlot  = false;
+            activeSlot = false;
 
-            for (Building b : proximity) {
-                if (b.team == team && b instanceof ModularCoreBuildV2 mc) {
-                    modularCore = mc;
-                    linkedCore  = mc;
-                    break;
-                }
-            }
-
-            if (modularCore == null && linkedCore instanceof CoreBuild) {
+            if (linkedCore instanceof ModularCoreBuildV2 mc) {
+                modularCore = mc;
+                activeSlot = true;
+            } else if (linkedCore instanceof CoreBuild) {
                 activeSlot = true;
             }
 
-            if (ownItems != null) this.items = ownItems;
+            if (modularCore == null) {
+                for (Building b : proximity) {
+                    if (b.team == team && b instanceof ModularCoreBuildV2 mc) {
+                        modularCore = mc;
+                        linkedCore = mc;
+                        activeSlot = true;
+                        
+                        this.items = mc.items;
+                        break;
+                    }
+                }
+            }
 
-            if (prev != null && prev != modularCore) prev.scheduleRecalculate();
-            if (modularCore != null) modularCore.scheduleRecalculate();
+            if (linkedCore == null && ownItems != null) {
+                this.items = ownItems; 
+            }
+
+            if (prevModular != modularCore || prevSlot != activeSlot) {
+                if (prevModular != null) prevModular.scheduleRecalculate();
+                if (modularCore != null) modularCore.scheduleRecalculate();
+            }
         }
 
         @Override
