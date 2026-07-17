@@ -294,8 +294,8 @@ public class VPBlocks {
             buildVisibility = BuildVisibility.shown;
             
             unitType = VPUnits.sifon;
-            unitBuildTime = 60f * 10f;
-            liquidCapacity = 400f;
+            unitBuildTime = 60f * 8f;
+            liquidCapacity = 450f;
             
             consumePower(2.5f); 
             
@@ -308,7 +308,7 @@ public class VPBlocks {
             buildVisibility = BuildVisibility.shown;
             
             hasLiquids = true;
-            liquidCapacity = 200f;
+            liquidCapacity = 500f;
             outputsLiquid = true;
             
             requirements(Category.liquid, ItemStack.with(VPItems.silver, 45, VPItems.palladium, 20));
