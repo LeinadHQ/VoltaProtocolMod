@@ -98,8 +98,10 @@ public class ModularModuleV2 extends StorageBlock {
     public void setStats() {
         super.setStats();
 
-        stats.remove(Stat.itemCapacity);
-        if (capacityBonus > 0)  stats.add(Stat.itemCapacity,        capacityBonus, StatUnit.none);
+        if (capacityBonus > 0) {
+            stats.remove(Stat.itemCapacity);
+            stats.add(Stat.itemCapacity, capacityBonus, StatUnit.none);
+        }
         if (armorBonus   != 0f) stats.add(Stat.armor,               armorBonus,    StatUnit.none);
         if (healthBonus  != 0f) stats.add(Stat.health,              healthBonus,   StatUnit.none);
         if (healRate      > 0f) stats.add(Stat.repairSpeed,         healRate,      StatUnit.perSecond);
