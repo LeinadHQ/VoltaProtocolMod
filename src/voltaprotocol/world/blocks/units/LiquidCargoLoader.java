@@ -1,12 +1,15 @@
 package voltaprotocol.world.blocks.units;
 
+import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import arc.graphics.g2d.Lines;
-
+import mindustry.ui.Bar;
+import mindustry.ui.Fonts;
+import mindustry.graphics.Pal;
 import arc.util.*;
 import arc.util.io.*;
 import mindustry.*;
@@ -39,8 +42,25 @@ public class LiquidCargoLoader extends Block{
         solid = true;
         hasLiquids = true;
         liquidCapacity = 200f;
-        ambientSound = Sounds.loopUnitBuilding;
+        ambientSound = Sounds.none;
     }
+
+    @Override
+    public void setBars(){
+        super.setBars();
+
+        addBar("units", (LiquidCargoLoaderBuild e) ->
+            new Bar(
+            () ->
+            Core.bundle.format("bar.unitcap",
+                Fonts.getUnicodeStr(unitType.name),
+                e.team.data().countType(unitType),
+                unitType.useUnitCap ? Units.getStringCap(e.team) : "∞"
+            ),
+            () -> Pal.power,
+            () -> unitType.useUnitCap ? (float)e.team.data().countType(unitType) / Units.getCap(e.team) : 1f
+            ));
+        }
 
     public class LiquidCargoLoaderBuild extends Building{
 
@@ -51,11 +71,6 @@ public class LiquidCargoLoader extends Block{
         public float totalProgress;
         public float warmup;
         public float readiness;
-
-        @Override
-        public float ambientVolume(){
-            return drone == null ? warmup : 0f;
-        }
 
         @Override
         public void updateTile(){
@@ -158,10 +173,8 @@ public class LiquidCargoLoader extends Block{
             drone = null;
             droneId = read.i();
             restoreTimer = 0f;
-            if(revision >= 1){
-                buildProgress = read.f();
-                warmup        = read.f();
-            }
+            buildProgress = read.f();
+            warmup        = read.f();
         }
     }
 }
