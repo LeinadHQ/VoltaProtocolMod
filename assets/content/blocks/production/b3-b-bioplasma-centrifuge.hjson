@@ -3,7 +3,7 @@ type: GenericCrafter
 size: 3
 hasLiquids: true
 hasItems: true
-craftTime: 90
+craftTime: 120
 envEnabled: [any]
 
 ambientSound: loopPulse
@@ -68,10 +68,10 @@ consumes: {
     vw-2-palladium/1
     silicon/2
   ]
-  liquid: vx-1-oxychloride/0.15
+  liquid: vx-1-oxychloride/0.2
 }
 
-outputLiquid: vx-2-bio-plasma/0.15
+outputLiquid: vx-2-bio-plasma/0.2
 
 requirements: [
   vw-1-silver/150
