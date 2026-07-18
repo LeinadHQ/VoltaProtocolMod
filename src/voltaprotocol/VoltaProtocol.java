@@ -1,5 +1,7 @@
 package voltaprotocol;
 
+import arc.Events;
+import mindustry.game.EventType.ResetEvent;
 import arc.util.Log;
 import mindustry.mod.Mod;
 
@@ -10,10 +12,17 @@ import voltaprotocol.content.VPTechTree;
 import voltaprotocol.content.VPUnits;
 import voltaprotocol.content.VPPlanets;
 import voltaprotocol.content.VPSectors;
+import voltaprotocol.world.blocks.units.LiquidCargoUnloadPoint; 
 
 public class VoltaProtocol extends Mod {
+    public VoltaProtocol(){
+        
+        Events.on(ResetEvent.class, e -> {
+            LiquidCargoUnloadPoint.allReceptors.clear();
+        });
+    }
 
-@Override
+    @Override
     public void loadContent(){
         Log.info("[Volta Protocol] Iniciando carga de contenido síncrono...");
 
