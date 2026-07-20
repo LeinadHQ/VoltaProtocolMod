@@ -3,7 +3,7 @@ health: 11500
 armor: 22
 speed: 0.42
 hitSize: 32
-outlineRadius: 3
+outlineRadius: 2
 
 range: 240
 drag: 0.04
