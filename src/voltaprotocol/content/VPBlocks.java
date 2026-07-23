@@ -1,9 +1,11 @@
 package voltaprotocol.content;
 
+import arc.graphics.Color;
 import arc.util.Log;
 import mindustry.content.Items;
 import mindustry.content.StatusEffects;
 import mindustry.graphics.CacheLayer;
+import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
@@ -12,8 +14,14 @@ import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.environment.OreBlock;
 import mindustry.world.blocks.environment.StaticWall;
 import mindustry.world.blocks.environment.SteamVent;
+import mindustry.world.blocks.liquid.ArmoredConduit;
+import mindustry.world.blocks.liquid.Conduit;
+import mindustry.world.blocks.liquid.LiquidBridge;
+import mindustry.world.blocks.liquid.LiquidJunction;
+import mindustry.world.blocks.liquid.LiquidRouter;
 import mindustry.world.meta.BuildVisibility;
 import voltaprotocol.world.blocks.defense.RegenerativeWall;
+import voltaprotocol.world.blocks.liquid.LiquidOverflowGate;
 import voltaprotocol.world.blocks.storage.ModularCoreV2;
 import voltaprotocol.world.blocks.storage.ModularModuleV2;
 import voltaprotocol.world.blocks.storage.ModuleProtocol;
@@ -57,13 +65,22 @@ public class VPBlocks {
     //Distribution
     public static Block liquidCargoLoader;
     public static Block liquidCargoUnloadPoint;
+        //conduits
+    public static Block liquidOverflow, liquidUnderflow;
+    public static Block palladiumConduit;
+    public static Block palladiumLiquidRouter;
+    public static Block palladiumLiquidJunction;
+    public static Block palladiumLiquidBridge;
+    public static Block palladiumLiquidContainer;
+    public static Block palladiumLiquidOverflow;
+    public static Block palladiumLiquidUnderflow;
     //Core
-    public static ModularCoreV2     voltaCore;
+    public static ModularCoreV2 voltaCore;
     //Core-Modules
-    public static ModularModuleV2   moduleBasic, moduleGreen, moduleRed, moduleBlue, moduleOrange, moduleSilver;
+    public static ModularModuleV2 moduleBasic, moduleGreen, moduleRed, moduleBlue, moduleOrange, moduleSilver;
 
     public static void load(){
-        Log.info("[Volta Protocol] Cargando bloques y configurando ingeniería defensiva...");
+        Log.info("[Volta Protocol] Cargando bloques...");
     //environment
         argentAndesite = new Floor("env-argent-andesite-vp"){{
             localizedName = "Andesita Argenta";
@@ -95,6 +112,11 @@ public class VPBlocks {
             blendGroup = this;
             oreDefault = false;
             albedo = 0.9f;
+
+            emitLight = true;
+            lightRadius = 20f;
+            lightColor = Color.cyan.cpy().a(0.25f);
+            forceDrawLight = true;
         }};
 
         oxychlorideShoalFloor = new Floor("env-oxychloride-shoal"){{
@@ -110,6 +132,11 @@ public class VPBlocks {
             cacheLayer = CacheLayer.water; 
             blendGroup = oxychlorideFloor;
             albedo = 0.9f;
+
+            emitLight = true;
+            lightRadius = 20f;
+            lightColor = Color.cyan.cpy().a(0.25f);
+            forceDrawLight = true;
         }};
 
         oxychlorideFloorSand = new Floor("env-oxychloride-floor-sand"){{
@@ -126,6 +153,11 @@ public class VPBlocks {
             blendGroup = oxychlorideFloor;
             oreDefault = false;
             albedo = 0.9f;
+
+            emitLight = true;
+            lightRadius = 20f;
+            lightColor = Color.cyan.cpy().a(0.25f);
+            forceDrawLight = true;
         }};
 
         oxychloridedandesiteShoalFloor = new Floor("env-oxychloride-shoal-andesite-dark"){{
@@ -141,6 +173,11 @@ public class VPBlocks {
             cacheLayer = CacheLayer.water; 
             blendGroup = oxychlorideFloor;
             albedo = 0.9f;
+
+            emitLight = true;
+            lightRadius = 20f;
+            lightColor = Color.cyan.cpy().a(0.25f);
+            forceDrawLight = true;
         }};
 
         oxychlorideDeepFloor = new Floor("env-oxychloride-deep-floor"){{
@@ -157,6 +194,11 @@ public class VPBlocks {
             blendGroup = oxychlorideFloor;
             oreDefault = false;
             albedo = 0.9f;
+
+            emitLight = true;
+            lightRadius = 16f;
+            lightColor = Color.cyan.cpy().a(0.15f);
+            forceDrawLight = true;
         }};
 
         argentAndesiteWall = new StaticWall("env-argent-andesite-wall"){{
@@ -294,8 +336,8 @@ public class VPBlocks {
             buildVisibility = BuildVisibility.shown;
             
             unitType = VPUnits.sifon;
-            unitBuildTime = 60f * 8f;
-            liquidCapacity = 450f;
+            unitBuildTime = 60f * 10f;
+            liquidCapacity = 500f;
             
             consumePower(2.5f); 
             
@@ -313,13 +355,83 @@ public class VPBlocks {
             
             requirements(Category.liquid, ItemStack.with(VPItems.silver, 45, VPItems.palladium, 20));
         }};
+
+        palladiumConduit = new ArmoredConduit("palladium-conduit"){{
+            requirements(Category.liquid, with(Items.metaglass, 2, VPItems.palladium, 2));
+            botColor = Pal.darkestMetal;
+            liquidCapacity = 50f;
+            liquidPressure = 2.2f;
+            health = 280;
+        }};
+
+        palladiumLiquidRouter = new LiquidRouter("palladium-liquid-router"){{
+            requirements(Category.liquid, with(Items.metaglass, 4, VPItems.palladium, 4));
+            liquidCapacity = 135f;
+            health = 250;
+            underBullets = true;
+            solid = false;
+        }};
+
+        palladiumLiquidJunction = new LiquidJunction("palladium-liquid-junction"){{
+            requirements(Category.liquid, with(Items.metaglass, 4, VPItems.palladium, 4));
+            health = 250;
+            solid = false;
+            ((Conduit)palladiumConduit).junctionReplacement = this;
+        }};
+
+        palladiumLiquidBridge = new LiquidBridge("palladium-liquid-bridge"){{
+            requirements(Category.liquid, with(Items.metaglass, 8, VPItems.palladium, 8));
+            health = 250;
+            floating = true;
+            range = 5;
+            hasPower = false;
+            liquidCapacity = 100f;
+            ((Conduit)palladiumConduit).bridgeReplacement = this;
+        }};
+
+        palladiumLiquidContainer = new LiquidRouter("palladium-liquid-container"){{
+            requirements(Category.liquid, with(Items.metaglass, 15, Items.titanium, 10, VPItems.palladium, 15));
+            liquidCapacity = 900f;
+            health = 600;
+            size = 2;
+            solid = true;
+        }};
+        // Overflow y Underflow de Líquidos (paladio)
+        palladiumLiquidOverflow = new LiquidOverflowGate("palladium-liquid-overflow"){{
+            requirements(Category.liquid, with(Items.metaglass, 5, VPItems.palladium, 5));
+            liquidCapacity = 80f;
+            health = 250;
+            invert = false;
+        }};
+
+        palladiumLiquidUnderflow = new LiquidOverflowGate("palladium-liquid-underflow"){{
+            requirements(Category.liquid, with(Items.metaglass, 5, VPItems.palladium, 5));
+            liquidCapacity = 80f;
+            health = 250;
+            invert = true;
+        }};
+        // para vanilla
+        liquidOverflow = new LiquidOverflowGate("liquid-overflow"){{
+            requirements(Category.liquid, with(Items.titanium, 4, Items.metaglass, 4));
+            liquidCapacity = 40f;
+            health = 100;
+            invert = false;
+        }};
+
+        liquidUnderflow = new LiquidOverflowGate("liquid-underflow"){{
+            requirements(Category.liquid, with(Items.titanium, 4, Items.metaglass, 4));
+            liquidCapacity = 40f;
+            health = 100;
+            invert = true;
+        }};
+
         // Core-Modular
         voltaCore = new ModularCoreV2("mc-1a-modular-core") {{ 
             requirements(Category.effect, with(
-                VPItems.silver,    2500,
-                VPItems.palladium, 2200,
-                Items.silicon,     2400,
-                Items.thorium,     1500
+                VPItems.silver,    500,
+                VPItems.palladium, 200,
+                Items.silicon,     400,
+                Items.thorium,     300
             ));
             unitType = VPUnits.kernelDrone;
             alwaysUnlocked = true;
@@ -333,13 +445,13 @@ public class VPBlocks {
                 
         // Modulos
         moduleBasic = new ModularModuleV2("mm-1a-module-basic") {{
-            requirements(Category.effect, with(VPItems.silver, 250));
+            requirements(Category.effect, with(VPItems.silver, 40));
             
             protocol = ModuleProtocol.STORAGE;
             canOverflow = true;
             
             size = 2;
-            health = 300;
+            health = 250;
             itemCapacity = 300; 
             capacityBonus = 0;
             armorBonus = 1f;
@@ -347,13 +459,12 @@ public class VPBlocks {
         }};
                 
         moduleGreen = new ModularModuleV2("mm-1d-module-green") {{
-            requirements(Category.effect, with(VPItems.bioComposite, 250, VPItems.silver, 150));
+            requirements(Category.effect, with(VPItems.bioComposite, 80, VPItems.silver, 30));
             
             protocol = ModuleProtocol.HEALING;
             
             size = 3;
             itemCapacity = 1100;
-            health = 550;
             capacityBonus = 0;
             armorBonus = -1f;
             healthBonus = 0f;
@@ -367,13 +478,13 @@ public class VPBlocks {
         }};
                 
         moduleRed = new ModularModuleV2("mm-1c-module-red") {{
-            requirements(Category.effect, with(VPItems.palladium, 250, VPItems.silver, 180));
+            requirements(Category.effect, with(VPItems.palladium, 80, VPItems.silver, 20));
             
             protocol = ModuleProtocol.ASSAULT;
             
             size = 3;
             health = 800;
-            itemCapacity = 500;
+            itemCapacity = 400;
             capacityBonus = 0;
             armorBonus = 1f;
             healthBonus = -200f;
@@ -410,13 +521,12 @@ public class VPBlocks {
         }};
                 
         moduleBlue = new ModularModuleV2("mm-1e-module-blue") {{
-            requirements(Category.effect, with(VPItems.aegesium, 200, VPItems.palladium, 200));
+            requirements(Category.effect, with(VPItems.aegesium, 100, VPItems.palladium, 20));
             
             protocol = ModuleProtocol.DEFENSE;
             
             size = 3;
-            itemCapacity = 800;
-            health = 900; 
+            itemCapacity = 700;
             capacityBonus = 0;
             armorBonus = 1.5f;
             healthBonus = 400f;
@@ -424,7 +534,7 @@ public class VPBlocks {
         }};
                 
         moduleOrange = new ModularModuleV2("mm-1f-module-orange") {{
-            requirements(Category.effect, with(VPItems.voltium, 150, VPItems.aegesium, 200));
+            requirements(Category.effect, with(VPItems.voltium, 60, VPItems.aegesium, 30));
             
             protocol = ModuleProtocol.ENERGY;
             
@@ -435,17 +545,16 @@ public class VPBlocks {
             itemCapacity = 400;
             capacityBonus = 0;
             armorBonus = 0f;
-            health = 600;
             healthBonus = -400f;
             powerOutput = 1050f;
             maxActive = 2;
 
             ambientSound = mindustry.gen.Sounds.loopPulse;
-            ambientSoundVolume = 0.04f;
+            ambientSoundVolume = 0.01f;
         }};
                 
         moduleSilver = new ModularModuleV2("mm-1b-module-silver") {{
-            requirements(Category.effect, with(VPItems.silver, 300, VPItems.palladium, 120));
+            requirements(Category.effect, with(VPItems.silver, 100, VPItems.palladium, 10));
             
             protocol = ModuleProtocol.STORAGE;
             canOverflow = true;
@@ -457,6 +566,6 @@ public class VPBlocks {
             armorBonus = 1f;
             healthBonus = 200f;
         }};
-        Log.info("[Volta Protocol] ¡Estructuras cargadas perfectamente en memoria!");
+        Log.info("[Volta Protocol] ¡Estructuras cargadas!");
     }
 }
