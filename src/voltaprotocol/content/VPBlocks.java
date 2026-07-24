@@ -20,6 +20,7 @@ import mindustry.world.blocks.liquid.LiquidBridge;
 import mindustry.world.blocks.liquid.LiquidJunction;
 import mindustry.world.blocks.liquid.LiquidRouter;
 import mindustry.world.meta.BuildVisibility;
+import mindustry.world.meta.Env;
 import voltaprotocol.world.blocks.defense.RegenerativeWall;
 import voltaprotocol.world.blocks.liquid.LiquidOverflowGate;
 import voltaprotocol.world.blocks.storage.ModularCoreV2;
@@ -74,6 +75,7 @@ public class VPBlocks {
     public static Block palladiumLiquidContainer;
     public static Block palladiumLiquidOverflow;
     public static Block palladiumLiquidUnderflow;
+
     //Core
     public static ModularCoreV2 voltaCore;
     //Core-Modules
@@ -273,6 +275,7 @@ public class VPBlocks {
             armor = 2f;
             chanceDeflect = 0.08f;
             size = 1;
+            envEnabled = Env.any;
             category = Category.defense;
             buildVisibility = BuildVisibility.shown;
             requirements(Category.defense, ItemStack.with(VPItems.silver, 6));
@@ -283,6 +286,7 @@ public class VPBlocks {
             armor = 2f;
             chanceDeflect = 0.14f;
             size = 2;
+            envEnabled = Env.any;
             category = Category.defense;
             buildVisibility = BuildVisibility.shown;
             requirements(Category.defense, ItemStack.with(VPItems.silver, 24));
@@ -292,6 +296,7 @@ public class VPBlocks {
             health = 600;
             armor = 3f;
             insulated = true;
+            envEnabled = Env.any;
             
             lightningChance = 0.09f;
             lightningLength = 6;
@@ -307,6 +312,7 @@ public class VPBlocks {
             health = 2400;
             armor = 3f;
             insulated = true;
+            envEnabled = Env.any;
             
             lightningChance = 0.18f;
             lightningLength = 8;
@@ -320,12 +326,14 @@ public class VPBlocks {
         
         regenerativeWall = new RegenerativeWall("a4-regenerative-wall", 1, 950, 3f, 2f, 10f){{
             category = Category.defense;
+            envEnabled = Env.any;
             buildVisibility = BuildVisibility.shown;
             requirements(Category.defense, ItemStack.with(VPItems.bioComposite, 6, VPItems.palladium, 1));
         }};
 
         regenerativeWallLarge = new RegenerativeWall("a5-regenerative-wall-large", 2, 3800, 4f, 4f, 25f){{
             category = Category.defense;
+            envEnabled = Env.any;
             buildVisibility = BuildVisibility.shown;
             requirements(Category.defense, ItemStack.with(VPItems.bioComposite, 24, VPItems.palladium, 4));
         }};
@@ -338,6 +346,7 @@ public class VPBlocks {
             unitType = VPUnits.sifon;
             unitBuildTime = 60f * 10f;
             liquidCapacity = 500f;
+            envEnabled = Env.any;
             
             consumePower(2.5f); 
             
@@ -352,6 +361,7 @@ public class VPBlocks {
             hasLiquids = true;
             liquidCapacity = 500f;
             outputsLiquid = true;
+            envEnabled = Env.any;
             
             requirements(Category.liquid, ItemStack.with(VPItems.silver, 45, VPItems.palladium, 20));
         }};
@@ -362,6 +372,7 @@ public class VPBlocks {
             liquidCapacity = 50f;
             liquidPressure = 2.2f;
             health = 280;
+            envEnabled = Env.any;
         }};
 
         palladiumLiquidRouter = new LiquidRouter("palladium-liquid-router"){{
@@ -370,6 +381,7 @@ public class VPBlocks {
             health = 250;
             underBullets = true;
             solid = false;
+            envEnabled = Env.any;
         }};
 
         palladiumLiquidJunction = new LiquidJunction("palladium-liquid-junction"){{
@@ -377,6 +389,7 @@ public class VPBlocks {
             health = 250;
             solid = false;
             ((Conduit)palladiumConduit).junctionReplacement = this;
+            envEnabled = Env.any;
         }};
 
         palladiumLiquidBridge = new LiquidBridge("palladium-liquid-bridge"){{
@@ -386,6 +399,7 @@ public class VPBlocks {
             range = 5;
             hasPower = false;
             liquidCapacity = 100f;
+            envEnabled = Env.any;
             ((Conduit)palladiumConduit).bridgeReplacement = this;
         }};
 
@@ -395,6 +409,7 @@ public class VPBlocks {
             health = 600;
             size = 2;
             solid = true;
+            envEnabled = Env.any;
         }};
         // Overflow y Underflow de Líquidos (paladio)
         palladiumLiquidOverflow = new LiquidOverflowGate("palladium-liquid-overflow"){{
@@ -402,6 +417,7 @@ public class VPBlocks {
             liquidCapacity = 80f;
             health = 250;
             invert = false;
+            envEnabled = Env.any;
         }};
 
         palladiumLiquidUnderflow = new LiquidOverflowGate("palladium-liquid-underflow"){{
@@ -409,6 +425,7 @@ public class VPBlocks {
             liquidCapacity = 80f;
             health = 250;
             invert = true;
+            envEnabled = Env.any;
         }};
         // para vanilla
         liquidOverflow = new LiquidOverflowGate("liquid-overflow"){{
@@ -416,6 +433,7 @@ public class VPBlocks {
             liquidCapacity = 40f;
             health = 100;
             invert = false;
+            envEnabled = Env.any;
         }};
 
         liquidUnderflow = new LiquidOverflowGate("liquid-underflow"){{
@@ -423,6 +441,7 @@ public class VPBlocks {
             liquidCapacity = 40f;
             health = 100;
             invert = true;
+            envEnabled = Env.any;
         }};
 
         // Core-Modular
@@ -441,6 +460,7 @@ public class VPBlocks {
             baseArmor = 4f;
             maxActiveModules = 6;
             isFirstTier = false;
+            envEnabled = Env.any;
         }};
                 
         // Modulos
@@ -456,6 +476,7 @@ public class VPBlocks {
             capacityBonus = 0;
             armorBonus = 1f;
             healthBonus = 0f;
+            envEnabled = Env.any;
         }};
                 
         moduleGreen = new ModularModuleV2("mm-1d-module-green") {{
@@ -475,6 +496,7 @@ public class VPBlocks {
 
             healEffect = mindustry.content.Fx.healBlockFull;
             healEffectChance = 0.04f;
+            envEnabled = Env.any;
         }};
                 
         moduleRed = new ModularModuleV2("mm-1c-module-red") {{
@@ -488,6 +510,7 @@ public class VPBlocks {
             capacityBonus = 0;
             armorBonus = 1f;
             healthBonus = -200f;
+            envEnabled = Env.any;
 
             turretRange = 240f;
             turretDamage = 135f;
@@ -531,6 +554,7 @@ public class VPBlocks {
             armorBonus = 1.5f;
             healthBonus = 400f;
             maxActive = 4;
+            envEnabled = Env.any;
         }};
                 
         moduleOrange = new ModularModuleV2("mm-1f-module-orange") {{
@@ -548,6 +572,7 @@ public class VPBlocks {
             healthBonus = -400f;
             powerOutput = 1050f;
             maxActive = 2;
+            envEnabled = Env.any;
 
             ambientSound = mindustry.gen.Sounds.loopPulse;
             ambientSoundVolume = 0.01f;
@@ -565,6 +590,7 @@ public class VPBlocks {
             capacityBonus = 0;
             armorBonus = 1f;
             healthBonus = 200f;
+            envEnabled = Env.any;
         }};
         Log.info("[Volta Protocol] ¡Estructuras cargadas!");
     }
