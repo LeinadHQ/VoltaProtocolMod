@@ -14,9 +14,10 @@ public class VPPlanets {
 
     public static void load() {
         Volta = new Planet("volta", Planets.sun, 1.2f, 3) {{
-            visible        = true;
-            accessible     = true;
+            visible = true;
+            accessible = true;
             alwaysUnlocked = true;
+            statParent = Planets.serpulo;
 
             generator = new VoltaPlanetGenerator();
 
@@ -47,14 +48,16 @@ public class VPPlanets {
             bloom = false;
 
             allowLaunchToNumbered = true;
-            defaultCore           = Blocks.coreNucleus;
-            startSector           = 0;
-
+            defaultCore = Blocks.coreNucleus;
+            startSector = 0;
             techTree = TechTree.all.find(t -> t.content == Blocks.coreShard);
+
+            //techTree = TechTree.all.find(t -> t.content == VPBlocks.voltaCore); 
+            autoAssignPlanet = true;
 
             ruleSetter = r -> {
                 r.waveSpacing = 120 * 60f;
-                r.waves       = true;
+                r.waves = true;
             };
         }};
     }
