@@ -1,16 +1,18 @@
 package voltaprotocol.content;
 
+import arc.Events;
 import arc.util.Log;
 import mindustry.content.*;
 import mindustry.content.TechTree.TechNode;
+import mindustry.game.EventType.ContentInitEvent;
 import mindustry.type.ItemStack;
 
 public class VPTechTree {
 
     public static void load() {
-        Log.info("[Volta Protocol] Acoplando ramas de investigación al árbol global...");
+        Log.info("[Volta Protocol] Acoplando ramas de investigación");
 
-        VPBlocks.silverWall.researchCost       = ItemStack.with(VPItems.silver, 150);
+        VPBlocks.silverWall.researchCost      = ItemStack.with(VPItems.silver, 150);
         VPBlocks.silverWallLarge.researchCost  = ItemStack.with(VPItems.silver, 350);
         VPBlocks.palladiumWall.researchCost    = ItemStack.with(VPItems.palladium, 200);
         VPBlocks.palladiumWallLarge.researchCost = ItemStack.with(VPItems.palladium, 450);
@@ -39,110 +41,132 @@ public class VPTechTree {
         VPBlocks.moduleOrange.researchCost =
             ItemStack.with(VPItems.voltium, 1500, VPItems.aegesium, 500);
 
-        addToVanillaTree(Blocks.coreShard);
-        Log.info("[Volta Protocol] ¡Árbol de Volta sincronizado!");
-    }
+        TechNode liquidRouterNode = TechTree.all.find(t -> t.content == Blocks.liquidRouter);
+        
+        if (liquidRouterNode != null) {
+            new TechNode(liquidRouterNode, VPBlocks.liquidOverflow, VPBlocks.liquidOverflow.researchRequirements());
+            new TechNode(liquidRouterNode, VPBlocks.liquidUnderflow, VPBlocks.liquidUnderflow.researchRequirements());
+        }
 
-    private static void addToVanillaTree(mindustry.world.Block coreRoot) {
+        TechNode serpuloCoreNode = TechTree.all.find(t -> t.content == Blocks.coreShard);
 
-        TechNode contextNode = TechTree.all.find(t -> t.content == coreRoot);
-        if (contextNode == null) return;
+        if (serpuloCoreNode != null) {
+            TechNode voltaRoot = new TechNode(serpuloCoreNode, VPBlocks.voltaCore, VPBlocks.voltaCore.researchRequirements());
+        }
 
-        contextNode.children.add(
-            TechTree.node(VPBlocks.voltaCore, () -> {
+        TechNode voltaNodeRef = TechTree.all.find(t -> t.content == VPBlocks.voltaCore);
+        
+        if (voltaNodeRef != null) {
+            // Ítems
+            if (VPItems.silver != null) {
+                TechTree.nodeProduce(VPItems.silver, () -> {
+                    if (VPItems.palladium != null) {
+                        TechTree.nodeProduce(VPItems.palladium, () -> {
+                            if (VPItems.voltium != null) TechTree.nodeProduce(VPItems.voltium, () -> {});
+                            if (VPItems.bioComposite != null) TechTree.nodeProduce(VPItems.bioComposite, () -> {});
+                        });
+                    }
+                    if (VPItems.aegesium != null) TechTree.nodeProduce(VPItems.aegesium, () -> {});
+                    
+                    if (VPLiquids.oxychloride != null) {
+                        TechTree.nodeProduce(VPLiquids.oxychloride, () -> {
+                            if (VPLiquids.bioPlasma != null) {
+                                TechTree.nodeProduce(VPLiquids.bioPlasma, () -> {
+                                    if (VPLiquids.fluxPhase != null) TechTree.nodeProduce(VPLiquids.fluxPhase, () -> {});
+                                });
+                            }
+                        });
+                    }
+                });
+            }
 
-                // Ítems
-                if (VPItems.silver != null) {
-                    TechTree.nodeProduce(VPItems.silver, () -> {
-
-                        if (VPItems.palladium != null) {
-                            TechTree.nodeProduce(VPItems.palladium, () -> {
-
-                                if (VPItems.voltium != null)
-                                    TechTree.nodeProduce(VPItems.voltium, () -> {});
-
-                                if (VPItems.bioComposite != null)
-                                    TechTree.nodeProduce(VPItems.bioComposite, () -> {});
-                            });
-                        }
-
-                        if (VPItems.aegesium != null)
-                            TechTree.nodeProduce(VPItems.aegesium, () -> {});
-
-                        if (VPLiquids.oxychloride != null) {
-                            TechTree.nodeProduce(VPLiquids.oxychloride, () -> {
-
-                                if (VPLiquids.bioPlasma != null) {
-                                    TechTree.nodeProduce(VPLiquids.bioPlasma, () -> {
-
-                                        if (VPLiquids.fluxPhase != null)
-                                            TechTree.nodeProduce(VPLiquids.fluxPhase, () -> {});
-                                    });
+            // Muros
+            if (VPBlocks.silverWall != null) {
+                new TechNode(voltaNodeRef, VPBlocks.silverWall, VPBlocks.silverWall.researchRequirements());
+                TechNode silverWallNode = TechTree.all.find(t -> t.content == VPBlocks.silverWall);
+                if (silverWallNode != null) {
+                    if (VPBlocks.silverWallLarge != null) new TechNode(silverWallNode, VPBlocks.silverWallLarge, VPBlocks.silverWallLarge.researchRequirements());
+                    if (VPBlocks.palladiumWall != null) {
+                        new TechNode(silverWallNode, VPBlocks.palladiumWall, VPBlocks.palladiumWall.researchRequirements());
+                        TechNode palWallNode = TechTree.all.find(t -> t.content == VPBlocks.palladiumWall);
+                        if (palWallNode != null) {
+                            if (VPBlocks.palladiumWallLarge != null) {
+                                new TechNode(palWallNode, VPBlocks.palladiumWallLarge, VPBlocks.palladiumWallLarge.researchRequirements());
+                                TechNode palWallLNode = TechTree.all.find(t -> t.content == VPBlocks.palladiumWallLarge);
+                                if (palWallLNode != null && VPBlocks.regenerativeWall != null) {
+                                    new TechNode(palWallLNode, VPBlocks.regenerativeWall, VPBlocks.regenerativeWall.researchRequirements());
+                                    TechNode regWallNode = TechTree.all.find(t -> t.content == VPBlocks.regenerativeWall);
+                                    if (regWallNode != null && VPBlocks.regenerativeWallLarge != null) {
+                                        new TechNode(regWallNode, VPBlocks.regenerativeWallLarge, VPBlocks.regenerativeWallLarge.researchRequirements());
+                                    }
                                 }
-                            });
+                            }
                         }
-                    });
+                    }
                 }
-                //Walls
-                if (VPBlocks.silverWall != null) {
-                    TechTree.node(VPBlocks.silverWall, () -> {
+            }
 
-                        if (VPBlocks.silverWallLarge != null)
-                            TechTree.node(VPBlocks.silverWallLarge);
-
-                        if (VPBlocks.palladiumWall != null) {
-                            TechTree.node(VPBlocks.palladiumWall, () -> {
-
-                                if (VPBlocks.palladiumWallLarge != null) {
-                                    TechTree.node(VPBlocks.palladiumWallLarge, () -> {
-
-                                        if (VPBlocks.regenerativeWall != null) {
-                                            TechTree.node(VPBlocks.regenerativeWall, () -> {
-
-                                                if (VPBlocks.regenerativeWallLarge != null)
-                                                    TechTree.node(VPBlocks.regenerativeWallLarge);
-                                            });
-                                        }
-                                    });
-                                }
-                            });
+            // Módulos
+            if (VPBlocks.moduleBasic != null) {
+                new TechNode(voltaNodeRef, VPBlocks.moduleBasic, VPBlocks.moduleBasic.researchRequirements());
+                TechNode modBasicNode = TechTree.all.find(t -> t.content == VPBlocks.moduleBasic);
+                if (modBasicNode != null && VPBlocks.moduleSilver != null) {
+                    new TechNode(modBasicNode, VPBlocks.moduleSilver, VPBlocks.moduleSilver.researchRequirements());
+                    TechNode modSilverNode = TechTree.all.find(t -> t.content == VPBlocks.moduleSilver);
+                    if (modSilverNode != null) {
+                        if (VPBlocks.moduleRed != null) {
+                            new TechNode(modSilverNode, VPBlocks.moduleRed, VPBlocks.moduleRed.researchRequirements());
+                            TechNode modRedNode = TechTree.all.find(t -> t.content == VPBlocks.moduleRed);
+                            if (modRedNode != null && VPBlocks.moduleBlue != null) {
+                                new TechNode(modRedNode, VPBlocks.moduleBlue, VPBlocks.moduleBlue.researchRequirements());
+                            }
                         }
-                    });
+                        if (VPBlocks.moduleGreen != null) {
+                            new TechNode(modSilverNode, VPBlocks.moduleGreen, VPBlocks.moduleGreen.researchRequirements());
+                            TechNode modGreenNode = TechTree.all.find(t -> t.content == VPBlocks.moduleGreen);
+                            if (modGreenNode != null && VPBlocks.moduleOrange != null) {
+                                new TechNode(modGreenNode, VPBlocks.moduleOrange, VPBlocks.moduleOrange.researchRequirements());
+                            }
+                        }
+                    }
                 }
-                //Modulos y Liquid-Cargo
-                if (VPBlocks.moduleBasic != null) {
-                    TechTree.node(VPBlocks.moduleBasic, () -> {
+            }
 
-                        if (VPBlocks.liquidCargoLoader != null) {
-                            TechTree.node(VPBlocks.liquidCargoLoader, () -> {
-
-                                if (VPBlocks.liquidCargoUnloadPoint != null)
-                                    TechTree.node(VPBlocks.liquidCargoUnloadPoint);
-                            });
-                        }
-
-                        if (VPBlocks.moduleSilver != null) {
-                            TechTree.node(VPBlocks.moduleSilver, () -> {
-
-                                if (VPBlocks.moduleRed != null) {
-                                    TechTree.node(VPBlocks.moduleRed, () -> {
-
-                                        if (VPBlocks.moduleBlue != null)
-                                            TechTree.node(VPBlocks.moduleBlue);
-                                    });
+            // Liquid-logistic
+            if (VPBlocks.palladiumConduit != null) {
+                new TechNode(voltaNodeRef, VPBlocks.palladiumConduit, VPBlocks.palladiumConduit.researchRequirements());
+                TechNode palCondNode = TechTree.all.find(t -> t.content == VPBlocks.palladiumConduit);
+                if (palCondNode != null && VPBlocks.palladiumLiquidRouter != null) {
+                    new TechNode(palCondNode, VPBlocks.palladiumLiquidRouter, VPBlocks.palladiumLiquidRouter.researchRequirements());
+                    TechNode palRouterNode = TechTree.all.find(t -> t.content == VPBlocks.palladiumLiquidRouter);
+                    if (palRouterNode != null) {
+                        if (VPBlocks.palladiumLiquidContainer != null) {
+                            new TechNode(palRouterNode, VPBlocks.palladiumLiquidContainer, VPBlocks.palladiumLiquidContainer.researchRequirements());
+                            TechNode palContNode = TechTree.all.find(t -> t.content == VPBlocks.palladiumLiquidContainer);
+                            if (palContNode != null && VPBlocks.liquidCargoLoader != null) {
+                                new TechNode(palContNode, VPBlocks.liquidCargoLoader, VPBlocks.liquidCargoLoader.researchRequirements());
+                                TechNode cargoLoaderNode = TechTree.all.find(t -> t.content == VPBlocks.liquidCargoLoader);
+                                if (cargoLoaderNode != null && VPBlocks.liquidCargoUnloadPoint != null) {
+                                    new TechNode(cargoLoaderNode, VPBlocks.liquidCargoUnloadPoint, VPBlocks.liquidCargoUnloadPoint.researchRequirements());
                                 }
-                                if (VPBlocks.moduleGreen != null) {
-                                    TechTree.node(VPBlocks.moduleGreen, () -> {
-
-                                        if (VPBlocks.moduleOrange != null)
-                                            TechTree.node(VPBlocks.moduleOrange);
-                                    });
-                                }
-                            });
+                            }
                         }
-                    });
+                        if (VPBlocks.palladiumLiquidJunction != null) {
+                            new TechNode(palRouterNode, VPBlocks.palladiumLiquidJunction, VPBlocks.palladiumLiquidJunction.researchRequirements());
+                        }
+                    }
                 }
-            })
-        );
+            }
+        }
+
+        Events.on(ContentInitEvent.class, e -> {
+            for(TechNode root : TechTree.roots){
+                if(root != null){
+                    root.addPlanet(VPPlanets.Volta);
+                }
+            }
+
+            Log.info("[Volta Protocol] ¡Árbol de Volta sincronizado!");
+        });
     }
 }
