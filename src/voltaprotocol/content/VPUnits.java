@@ -53,7 +53,7 @@ public class VPUnits{
             
             flying = true;
             drag = 0.05f;
-            speed = 3.75f;
+            speed = 3.9f;
             accel = 0.05f;
             health = 250f;
             armor = 0f;
