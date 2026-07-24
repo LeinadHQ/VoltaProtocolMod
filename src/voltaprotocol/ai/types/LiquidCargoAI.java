@@ -24,7 +24,7 @@ public class LiquidCargoAI extends AIController {
 
     public Liquid currentLiquid       = null;
     public float  liquidAmount        = 0f;
-    public float  droneLiquidCapacity = 220f;
+    public float  droneLiquidCapacity = 350f;
 
     @Override
     public void updateMovement() {
